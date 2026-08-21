@@ -1,0 +1,24 @@
+.svg {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: 100%;
+}
+
+.svgOpen {
+  transform: rotate(-45deg);
+}
+
+.path {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pathOpen {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42px;
+}
+
+.pathClosed {
+  stroke-dasharray: 12 63;
+}

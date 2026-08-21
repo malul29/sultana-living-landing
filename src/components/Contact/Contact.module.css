@@ -1,0 +1,130 @@
+.contact {
+  position: relative;
+  padding: clamp(6rem, 10vw, 8rem) 0;
+  overflow: hidden;
+}
+
+.contactBg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/gate.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--green-900) 0%,
+    rgba(15, 21, 16, 0.8) 50%,
+    var(--green-900) 100%
+  );
+}
+
+.contentWrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background: rgba(15, 21, 16, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--rounded-2xl);
+  padding: clamp(3rem, 6vw, 5rem);
+  max-width: 54rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.accent {
+  color: var(--gold-300);
+  font-style: italic;
+}
+
+.desc {
+  max-width: 36rem;
+  margin-bottom: 3rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.btnPrimary, .btnOutline {
+  min-width: 200px;
+  justify-content: center;
+}
+
+.info {
+  display: flex;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  justify-content: center;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.infoLabel {
+  font-family: var(--font-accent);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--white-alpha-500);
+}
+
+.infoValue {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btnPrimary, .btnOutline {
+    width: 100%;
+  }
+  
+  .info {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+}

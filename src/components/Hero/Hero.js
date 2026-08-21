@@ -1,0 +1,126 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import styles from "./Hero.module.css";
+import { InteractiveHoverButton } from "../ui/InteractiveHoverButton";
+
+const floatingStats = [
+  { value: "36", label: "Exclusive Units", suffix: "" },
+  { value: "10", label: "Potential Yield", suffix: "%" },
+  { value: "170", label: "Start Investment", suffix: " Jt+" },
+];
+
+export default function Hero() {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.25, 0.65]);
+  
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
+  const scrollToSection = (e) => {
+    e.preventDefault();
+    const target = document.querySelector("#about");
+    if (target) target.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <section className={styles.hero} ref={sectionRef} id="hero">
+      {/* Background Image */}
+      <motion.div className={styles.heroBg}>
+        <Image
+          src="/images/gate.png"
+          alt="Sultana Living Gate Entrance"
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
+        />
+        <motion.div className={styles.heroOverlay} style={{ opacity: overlayOpacity }} />
+        <div className={styles.heroGradient} />
+      </motion.div>
+
+      {/* Hero Content */}
+      <motion.div
+        className={styles.heroContent}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Badge */}
+        <motion.div variants={itemVariants} className={styles.badge}>
+          <span className={styles.badgeDot} />
+          High-Yield Investment · Samata's Prime Location
+        </motion.div>
+
+        <motion.h1 variants={itemVariants} className={styles.title}>
+          <span className={styles.titleLine}>Exclusive</span>
+          <span className={styles.titleLine}>
+            <em className={styles.titleAccent}>Student Living</em>
+          </span>
+        </motion.h1>
+
+        <motion.p variants={itemVariants} className={styles.tagline}>
+          Hunian Student Living di lokasi strategis Samata — kenyamanan modern
+          sekaligus potensi investasi imbal hasil tinggi di kawasan yang terus berkembang.
+        </motion.p>
+
+        <motion.div variants={itemVariants} className={styles.heroCtas}>
+          <InteractiveHoverButton 
+            text="Hubungi Kami" 
+            variant="primary" 
+            href="https://wa.me/6285216621987"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+          <InteractiveHoverButton 
+            text="Lihat Unit" 
+            href="#properties"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector("#properties")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          />
+        </motion.div>
+
+        {/* Inline Stats Panel */}
+        <motion.div variants={itemVariants} className={styles.statsContainer}>
+          {floatingStats.map((stat, i) => (
+            <div key={stat.label} className={styles.statItem}>
+              <span className={styles.statValue}>
+                {stat.value}
+                <span className={styles.statSuffix}>{stat.suffix}</span>
+              </span>
+              <span className={styles.statLabel}>{stat.label}</span>
+            </div>
+          ))}
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}

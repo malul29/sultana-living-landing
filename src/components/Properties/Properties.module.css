@@ -1,0 +1,444 @@
+.properties {
+  padding: var(--section-padding) 0;
+  background: var(--green-850);
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: clamp(4rem, 8vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+}
+
+.accent {
+  color: var(--gold-300);
+  font-style: italic;
+}
+
+.sectionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 6vw, 5rem);
+}
+
+/* Individual Property Block */
+.propertyBlock {
+  position: relative;
+  width: 100%;
+}
+
+.blockHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--hairline-white);
+}
+
+.headerTitleArea {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: var(--gold-500);
+  color: var(--green-900);
+  border-radius: var(--rounded-full);
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.blockType {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 8vw, 4.5rem);
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.blockTagline {
+  font-family: var(--font-accent);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--gold-300);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.blockDesc {
+  max-width: 28rem;
+  font-size: 1.05rem;
+  color: var(--white-alpha-600);
+  line-height: 1.6;
+  text-align: right;
+}
+
+/* Massive Facade Image */
+.massiveFacade {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21/9; /* Cinematic ultra-wide */
+  border-radius: var(--rounded-2xl);
+  overflow: hidden;
+  margin-bottom: 4rem;
+  border: 1px solid var(--hairline-white);
+  background: var(--green-900);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 70%,
+    rgba(30, 42, 31, 0.4) 100%
+  );
+  pointer-events: none;
+}
+
+/* Split Section (Floor Plan + Details) */
+.blockSplit {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr; /* Floor plan gets more space */
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: flex-start;
+}
+
+.floorPlanSide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.floorPlanHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.floorPlanHeader h4 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.floorPlanHeader span {
+  font-family: var(--font-accent);
+  font-size: 0.85rem;
+  color: var(--gold-300);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.floorPlanImageWrap {
+  width: 100%;
+  max-width: 600px; /* Allow the floor plan to be very large */
+  position: relative;
+}
+
+/* Details Side */
+.detailsSide {
+  position: sticky;
+  top: 6rem;
+}
+
+.specsCard {
+  background: var(--surface-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--hairline-white);
+  border-radius: var(--rounded-2xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-xl);
+}
+
+.specsCard h4 {
+  font-family: var(--font-accent);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--hairline-white);
+}
+
+.specsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.specItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.specIcon {
+  color: var(--gold-400);
+  background: rgba(176, 164, 106, 0.1);
+  padding: 0.8rem;
+  border-radius: var(--rounded-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.specText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.specLabel {
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  color: var(--white-alpha-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.specValue {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.bookBtn {
+  width: 100%;
+  justify-content: center;
+  padding: 1.2rem;
+}
+
+/* Global Specs Accordion */
+.globalSpecsWrapper {
+  margin-top: clamp(6rem, 12vw, 8rem);
+  max-width: 60rem;
+  margin-inline: auto;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--hairline-white);
+  border-radius: var(--rounded-xl);
+  overflow: hidden;
+}
+
+.specsToggleBtn {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-accent);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--gold-300);
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.specsToggleBtn:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.specsPanel {
+  overflow: hidden;
+}
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.specGridItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px dashed var(--hairline-white);
+}
+
+.specGridLabel {
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white-alpha-500);
+}
+
+.specGridValue {
+  font-size: 0.95rem;
+  color: var(--white);
+  line-height: 1.4;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .blockSplit {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .detailsSide {
+    position: relative;
+    top: 0;
+  }
+  
+  .massiveFacade {
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (max-width: 900px) {
+  .blockHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .blockDesc {
+    text-align: left;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionsContainer {
+    gap: 2.5rem;
+  }
+
+  .massiveFacade {
+    aspect-ratio: 4/3;
+    margin-bottom: 2.5rem;
+  }
+  
+  .floorPlanSide {
+    padding: 0;
+  }
+  
+  .specsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .blockType {
+    font-size: 2.5rem;
+  }
+  
+  .floorPlanHeader h4 {
+    font-size: 1.5rem;
+  }
+
+  .floorPlanSide {
+    padding: 0;
+  }
+  
+  .specsCard {
+    padding: 1.5rem;
+    border: none;
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: none;
+  }
+  
+  .specIcon {
+    padding: 0.5rem;
+  }
+  
+  .specIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .specsToggleBtn {
+    padding: 1.2rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== Lightbox Modal ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10, 15, 12, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: zoom-out;
+}
+
+.lightboxCloseBtn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.lightboxCloseBtn:hover {
+  background: var(--gold-400);
+  color: var(--green-900);
+  transform: scale(1.1);
+}
+
+.lightboxImageWrap {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 90vh;
+  cursor: default;
+}
+
+/* Zoom Hint Overlay */
+.massiveFacade, .floorPlanImageWrap {
+  cursor: zoom-in;
+}
+
+.zoomHint {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 21, 16, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.massiveFacade:hover .zoomHint,
+.floorPlanImageWrap:hover .zoomHint {
+  opacity: 1;
+}
