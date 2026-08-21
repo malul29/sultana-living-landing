@@ -35,6 +35,15 @@
     linear-gradient(90deg, rgba(15, 21, 16, 0.6) 0%, transparent 60%);
 }
 
+/* Plasma WebGL Layer */
+.plasmaLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: auto;
+  mix-blend-mode: screen;
+}
+
 /* Content */
 .heroContent {
   position: relative;
@@ -124,22 +133,13 @@
   flex-wrap: wrap;
 }
 
-/* Inline Stats - Premium Glass Panel */
+/* Inline Stats - Minimal */
 .statsContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
-  margin-top: 4rem;
-  
-  /* Glassmorphism Panel */
-  background: rgba(15, 21, 16, 0.45);
-  backdrop-filter: blur(24px) saturate(1.5);
-  -webkit-backdrop-filter: blur(24px) saturate(1.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 100px; /* Pill shape */
-  padding: 1.5rem 3rem;
-  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  gap: 2.5rem;
+  margin-top: 3rem;
 }
 
 .statItem {
@@ -148,47 +148,41 @@
   align-items: center;
   text-align: center;
   position: relative;
-  transition: transform 0.3s ease;
 }
 
 /* Vertical dividers */
 .statItem:not(:last-child)::after {
   content: '';
   position: absolute;
-  right: -1.5rem;
+  right: -1.25rem;
   top: 50%;
   transform: translateY(-50%);
-  height: 40px;
+  height: 24px;
   width: 1px;
   background: rgba(255, 255, 255, 0.15);
 }
 
-.statItem:hover {
-  transform: translateY(-4px);
-}
-
 .statValue {
   font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 300;
+  font-size: 1.6rem;
+  font-weight: 400;
   color: var(--white);
   line-height: 1.1;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .statSuffix {
-  font-size: 0.55em;
+  font-size: 0.6em;
   color: var(--gold-300);
-  margin-left: 0.1em;
+  margin-left: 0.05em;
 }
 
 .statLabel {
   font-family: var(--font-accent);
-  font-size: 0.75rem;
-  color: var(--white-alpha-600);
+  font-size: 0.6rem;
+  color: var(--white-alpha-500);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-top: 0.4rem;
+  letter-spacing: 0.12em;
+  margin-top: 0.25rem;
 }
 
 /* ===== Responsive ===== */
@@ -225,20 +219,12 @@
   }
 
   .statsContainer {
-    width: 90%;
-    margin-top: 3rem;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.5rem;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
   }
   
   .statItem:not(:last-child)::after {
-    right: -0.5rem;
-  }
-  
-  .statItem {
-    align-items: center;
-    text-align: center;
+    right: -0.75rem;
   }
 }
 
@@ -259,24 +245,15 @@
   }
   
   .statsContainer {
-    width: 100%;
-    padding: 1.2rem 0.5rem;
+    gap: 1.2rem;
     margin-top: 2rem;
-    justify-content: space-evenly;
-    gap: 0.2rem;
-    border-radius: var(--rounded-2xl);
-  }
-  
-  .statItem:not(:last-child)::after {
-    display: none; /* Hide dividers on very small screens to save space */
   }
   
   .statValue {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   
   .statLabel {
-    font-size: 0.55rem;
-    margin-top: 0.2rem;
+    font-size: 0.5rem;
   }
 }

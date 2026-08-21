@@ -4,7 +4,6 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/Hero/Hero";
 import About from "@/components/About/About";
-import Stats from "@/components/Stats/Stats";
 import Properties from "@/components/Properties/Properties";
 import Amenities from "@/components/Amenities/Amenities";
 import Location from "@/components/Location/Location";
@@ -31,7 +30,6 @@ export default function Home() {
         <main>
           <Hero />
           <About />
-          <Stats />
           <Properties />
           <Masterplan />
           <Amenities />

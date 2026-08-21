@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { MenuToggleIcon } from "./MenuToggleIcon";
+import { InteractiveHoverButton } from "../ui/InteractiveHoverButton";
 import styles from "./Navbar.module.css";
 
 const navLinks = [
@@ -75,6 +76,7 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       >
+        <div className={styles.navInner}>
         <nav className={styles.nav}>
           <a href="#" className={styles.logo} aria-label="Sultana Living Home">
             <Image
@@ -112,13 +114,13 @@ export default function Navbar() {
           </div>
 
           <div className={styles.navRight}>
-            <a
+            <InteractiveHoverButton
+              text="Hubungi Kami"
+              variant="primary"
               href="#contact"
-              className={`btn btn-primary ${styles.ctaBtn}`}
+              className={styles.ctaBtn}
               onClick={(e) => handleLinkClick(e, "#contact")}
-            >
-              Hubungi Kami
-            </a>
+            />
 
             <button
               className={styles.menuToggleBtn}
@@ -130,6 +132,7 @@ export default function Navbar() {
             </button>
           </div>
         </nav>
+        </div>
       </motion.header>
 
       {/* Mobile Menu Overlay */}

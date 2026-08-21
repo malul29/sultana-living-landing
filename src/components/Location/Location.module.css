@@ -149,11 +149,27 @@
   .distItem {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.2rem;
+    padding-bottom: 1rem;
   }
   
   .distTime {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
+  }
+  
+  .distLabel {
+    font-size: 0.85rem;
+  }
+
+  .distDesc {
+    font-size: 0.75rem;
+  }
+
+  .mapBadge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.65rem;
+    bottom: 1rem;
+    left: 1rem;
   }
   
   .mapFrame {

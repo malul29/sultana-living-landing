@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import styles from "./Hero.module.css";
 import { InteractiveHoverButton } from "../ui/InteractiveHoverButton";
+import Plasma from "../ui/Plasma";
 
 const floatingStats = [
   { value: "36", label: "Exclusive Units", suffix: "" },
@@ -42,12 +43,6 @@ export default function Hero() {
     },
   };
 
-  const scrollToSection = (e) => {
-    e.preventDefault();
-    const target = document.querySelector("#about");
-    if (target) target.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section className={styles.hero} ref={sectionRef} id="hero">
       {/* Background Image */}
@@ -65,6 +60,18 @@ export default function Hero() {
         <div className={styles.heroGradient} />
       </motion.div>
 
+      {/* Plasma WebGL Layer */}
+      <div className={styles.plasmaLayer}>
+        <Plasma
+          color="#c4b87e"
+          speed={0.4}
+          direction="forward"
+          scale={1.3}
+          opacity={0.2}
+          mouseInteractive={true}
+        />
+      </div>
+
       {/* Hero Content */}
       <motion.div
         className={styles.heroContent}
@@ -75,7 +82,7 @@ export default function Hero() {
         {/* Badge */}
         <motion.div variants={itemVariants} className={styles.badge}>
           <span className={styles.badgeDot} />
-          High-Yield Investment · Samata's Prime Location
+          High-Yield Investment · Samata&apos;s Prime Location
         </motion.div>
 
         <motion.h1 variants={itemVariants} className={styles.title}>

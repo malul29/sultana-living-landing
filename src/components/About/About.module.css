@@ -1,162 +1,451 @@
 .about {
   padding: var(--section-padding) 0;
+  background: var(--green-900);
   position: relative;
   overflow: hidden;
 }
 
-.grid {
+.bentoGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(3rem, 5vw, 5rem);
-  align-items: center;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  max-width: 88rem;
+  margin: 0 auto;
 }
 
-/* Image */
-.imageWrap {
+@media (min-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 280px;
+  }
+}
+
+/* Base Card Styles */
+.card {
   position: relative;
-  border-radius: var(--rounded-xl);
+  border-radius: var(--rounded-2xl);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-}
-
-.imageContainer {
-  position: relative;
-  aspect-ratio: 4/5;
-  border-radius: var(--rounded-xl);
-  overflow: hidden;
-}
-
-.imageContainer img {
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.imageWrap:hover .imageContainer img {
-  transform: scale(1.04);
-}
-
-/* Floating accent badge */
-.imageAccent {
-  position: absolute;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.2rem 1.5rem;
-  background: rgba(15, 21, 16, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--rounded-lg);
-  z-index: 2;
-}
-
-.accentNumber {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 300;
-  color: var(--gold-300);
-  line-height: 1;
-}
-
-.accentLabel {
-  font-family: var(--font-accent);
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--white-alpha-500);
-  margin-top: 0.3rem;
-}
-
-/* Content */
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.title {
-  line-height: 1.15;
-}
-
-.titleAccent {
-  color: var(--gold-300);
-  font-style: italic;
-}
-
-.desc {
-  max-width: 32rem;
-}
-
-/* Highlight Cards */
-.highlights {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin-top: 0.8rem;
-}
-
-.highlightItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--hairline-white);
   transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
-.highlightItem:last-child {
-  border-bottom: none;
+.card:hover {
+  border-color: rgba(212, 201, 142, 0.3); /* gold-300 */
 }
 
-.highlightItem:hover {
-  padding-left: 0.5rem;
-}
-
-.highlightNum {
-  font-family: var(--font-accent);
-  font-size: 0.7rem;
-  color: var(--gold-400);
-  letter-spacing: 0.1em;
-  min-width: 1.8rem;
-  padding-top: 0.25rem;
-  opacity: 0.6;
-}
-
-.highlightTitle {
-  font-family: var(--font-accent);
-  font-size: 0.9rem;
-  font-weight: 500;
+/* Card 1: Large Hero */
+.cardLarge {
+  background: var(--green-850);
+  justify-content: flex-end;
   color: var(--white);
-  letter-spacing: 0.04em;
-  margin-bottom: 0.2rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
-.highlightDesc {
-  font-size: 0.82rem;
-  color: var(--white-alpha-500);
+@media (min-width: 768px) {
+  .cardLarge {
+    grid-column: span 2;
+    grid-row: span 2;
+    padding: 3rem;
+  }
+}
+
+.cardLargeBg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/view.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  transition: transform 0.7s ease;
+  z-index: 0;
+}
+
+.cardLarge:hover .cardLargeBg {
+  transform: scale(1.05);
+}
+
+.cardLargeOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 15, 12, 0.9), transparent);
+  z-index: 1;
+}
+
+.cardLargeContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cardLargeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.5rem 1rem;
+  border-radius: var(--rounded-full);
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold-400);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(196, 184, 126, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(196, 184, 126, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(196, 184, 126, 0); }
+}
+
+.cardLargeTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 300;
+}
+
+.cardLargeDesc {
+  font-size: 1.1rem;
+  color: var(--white-alpha-800);
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+/* Card 2: Stats (Yield) */
+.cardStats1 {
+  background: linear-gradient(135deg, var(--green-800), var(--green-850));
+  justify-content: space-between;
+}
+
+.cardStats1Blur {
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+  width: 150px;
+  height: 150px;
+  background: rgba(196, 184, 126, 0.15); /* gold blur */
+  filter: blur(40px);
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+}
+
+.cardStats1:hover .cardStats1Blur {
+  transform: scale(1.2);
+}
+
+.cardStats1Content {
+  position: relative;
+  z-index: 1;
+}
+
+.cardIcon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--rounded-lg);
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-400);
+  margin-bottom: 2rem;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cardStatsValue {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.cardStatsLabel {
+  font-family: var(--font-accent);
+  color: var(--white-alpha-600);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+}
+
+/* Card 3: Feature */
+.cardFeature {
+  background: rgba(255, 255, 255, 0.02);
+  justify-content: space-between;
+}
+
+.cardFeature .cardIcon {
+  background: linear-gradient(135deg, rgba(196, 184, 126, 0.2), transparent);
+}
+
+.cardFeatureTitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.cardFeatureDesc {
+  color: var(--white-alpha-600);
+  font-size: 0.95rem;
   line-height: 1.5;
 }
 
+/* Card 4: CTA */
+.cardCta {
+  background: linear-gradient(135deg, var(--gold-500), var(--gold-400));
+  color: var(--green-900);
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.cardCtaHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cardCtaBadge {
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 0.4rem 1rem;
+  border-radius: var(--rounded-full);
+}
+
+.cardCtaArrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.cardCta:hover .cardCtaArrow {
+  background: rgba(255, 255, 255, 0.5);
+  transform: rotate(45deg);
+}
+
+.cardCtaTitle {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* Card 5: Stats (Income) */
+.cardStats2 {
+  background: var(--green-950);
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cardStats2Bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(196, 184, 126, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.cardStats2:hover .cardStats2Bg {
+  opacity: 1;
+}
+
+.pingIndicator {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  width: 12px;
+  height: 12px;
+}
+
+.pingOuter {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--gold-400);
+  opacity: 0.75;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.pingInner {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold-300);
+}
+
+.cardStats2Value {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  background: linear-gradient(to right, var(--gold-200), var(--gold-400));
+  -webkit-background-clip: text;
+  color: transparent;
+  z-index: 1;
+}
+
+/* Card 6: Stats (ROI) */
+.cardStats3 {
+  background: linear-gradient(135deg, var(--green-800), var(--green-700));
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cardStats3Blur {
+  position: absolute;
+  bottom: -3rem;
+  right: -3rem;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  filter: blur(50px);
+  border-radius: 50%;
+}
+
+.cardStats3Value {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--white);
+  z-index: 1;
+  line-height: 1;
+}
+
 /* Responsive */
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+/* Responsive */
+@media (max-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .card {
+    grid-column: span 1;
+    min-height: 180px;
+    padding: 1.25rem;
   }
 
-  .imageContainer {
-    aspect-ratio: 16/10;
+  .cardLarge {
+    grid-column: span 2;
+    min-height: 350px;
+    padding: 2rem;
+  }
+  
+  .cardCta {
+    grid-column: span 1;
+  }
+  
+  .cardStats3 {
+    grid-column: span 2;
+  }
+  
+  .cardLargeTitle {
+    font-size: 2rem;
+  }
+  
+  .cardStatsValue {
+    font-size: 2rem;
+  }
+  
+  .cardStats2Value {
+    font-size: 2rem;
+  }
+  
+  .cardStats3Value {
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .imageAccent {
-    bottom: 1rem;
-    right: 1rem;
-    padding: 0.8rem 1rem;
+  .bentoGrid {
+    gap: 0.8rem;
+    padding: 0 0.5rem;
   }
 
-  .accentNumber {
+  .card {
+    min-height: 150px;
+    padding: 1rem;
+  }
+
+  .cardLarge {
+    min-height: 280px;
+    padding: 1.5rem;
+  }
+  
+  .cardLargeTitle {
+    font-size: 1.6rem;
+  }
+  
+  .cardLargeDesc {
+    font-size: 0.85rem;
+  }
+  
+  .cardStatsValue,
+  .cardStats2Value,
+  .cardStats3Value {
+    font-size: 1.6rem;
+  }
+
+  .cardCtaTitle {
     font-size: 1.5rem;
+  }
+  
+  .cardIcon {
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .cardIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .cardStatsLabel {
+    font-size: 0.65rem;
+  }
+  
+  .cardFeatureTitle {
+    font-size: 1rem;
+  }
+  
+  .cardFeatureDesc {
+    font-size: 0.75rem;
   }
 }

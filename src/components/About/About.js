@@ -2,128 +2,142 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Image from "next/image";
+import { TrendingUp, Key, ArrowUpRight } from "lucide-react";
 import styles from "./About.module.css";
-
-const highlights = [
-  { num: "01", title: "Guaranteed ROI", desc: "Jaminan pengembalian investasi dengan program buyback guarantee" },
-  { num: "02", title: "High Yield 10%", desc: "Imbal hasil investasi tertinggi di kelasnya per tahun" },
-  { num: "03", title: "Passive Income", desc: "Potensi pendapatan pasif hingga Rp 180 Juta per tahun*" },
-];
 
 export default function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    },
+  };
+
   return (
     <section className={styles.about} id="about" ref={ref}>
       <div className="wrap">
-        <div className={styles.grid}>
-          {/* Left - Image with clip-path reveal */}
-          <motion.div
-            className={styles.imageWrap}
-            initial={{ opacity: 0, clipPath: "inset(10% 10% 10% 10%)" }}
-            animate={isInView ? { opacity: 1, clipPath: "inset(0% 0% 0% 0%)" } : {}}
-            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className={styles.imageContainer}>
-              <Image
-                src="/images/view.png"
-                alt="Sultana Living Masterplan Aerial View"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: "cover" }}
-              />
+        <motion.div 
+          className={styles.bentoGrid}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {/* Card 1: Large Hero */}
+          <motion.div variants={itemVariants} className={`${styles.card} ${styles.cardLarge}`}>
+            <div className={styles.cardLargeBg} />
+            <div className={styles.cardLargeOverlay} />
+
+            <div className={styles.cardLargeContent}>
+              <div className={styles.cardLargeBadge}>
+                <span className={styles.pulseDot} />
+                Student Living
+              </div>
+              <h3 className={styles.cardLargeTitle}>
+                Where Modern Living
+                <br />
+                <span style={{ color: "var(--gold-300)", fontStyle: "italic" }}>Meets Smart Investment</span>
+              </h3>
+              <p className={styles.cardLargeDesc}>
+                Dirancang oleh EDRA Arsitek, setiap unit menghadirkan standar arsitektur 
+                profesional dengan estetika modern di lokasi strategis Samata.
+              </p>
             </div>
-            {/* Floating accent */}
-            <motion.div
-              className={styles.imageAccent}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <span className={styles.accentNumber}>36</span>
-              <span className={styles.accentLabel}>Unit Eksklusif</span>
-            </motion.div>
           </motion.div>
 
-          {/* Right - Content */}
-          <div className={styles.content}>
-            <motion.span
-              className="label"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Our Vision
-            </motion.span>
+          {/* Card 2: Stats (Yield) */}
+          <motion.div variants={itemVariants} className={`${styles.card} ${styles.cardStats1}`}>
+            <div className={styles.cardStats1Blur} />
+            <div className={styles.cardStats1Content}>
+              <div className={styles.cardIcon}>
+                <TrendingUp className="w-7 h-7" />
+              </div>
+              <h4 className={styles.cardStatsValue}>10%</h4>
+              <p className={styles.cardStatsLabel}>Potential Yield p.a.</p>
+            </div>
+          </motion.div>
 
-            <motion.h2
-              className={styles.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            >
-              Where Modern Living
+          {/* Card 3: Feature */}
+          <motion.div variants={itemVariants} className={`${styles.card} ${styles.cardFeature}`}>
+            <div className={`${styles.cardIcon}`}>
+              <Key className="w-6 h-6" />
+            </div>
+            <div>
+              <h4 className={styles.cardFeatureTitle}>
+                36 Exclusive Units
+              </h4>
+              <p className={styles.cardFeatureDesc}>
+                Terbatas hanya 36 unit dengan jaminan privasi dan kenyamanan.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Card 4: CTA */}
+          <motion.a 
+            href="#contact"
+            variants={itemVariants} 
+            className={`${styles.card} ${styles.cardCta}`}
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            <div className={styles.cardCtaHeader}>
+              <span className={styles.cardCtaBadge}>
+                Join Now
+              </span>
+              <div className={styles.cardCtaArrow}>
+                <ArrowUpRight className="w-5 h-5" />
+              </div>
+            </div>
+            <h4 className={styles.cardCtaTitle}>
+              Hubungi
               <br />
-              <span className={styles.titleAccent}>Meets Smart Investment</span>
-            </motion.h2>
+              Kami
+            </h4>
+          </motion.a>
 
-            <motion.div
-              className="divider-gold"
-              initial={{ scaleX: 0 }}
-              animate={isInView ? { scaleX: 1 } : {}}
-              transition={{ duration: 1, delay: 0.5 }}
-              style={{ transformOrigin: "left" }}
-            />
+          {/* Card 5: Stats (Income) */}
+          <motion.div variants={itemVariants} className={`${styles.card} ${styles.cardStats2}`}>
+            <div className={styles.cardStats2Bg} />
+            <div className={styles.pingIndicator}>
+              <span className={styles.pingOuter}></span>
+              <span className={styles.pingInner}></span>
+            </div>
+            <div className={styles.cardStats1Content}>
+              <span className={styles.cardStats2Value}>
+                Rp180 Juta
+              </span>
+              <p className={styles.cardStatsLabel} style={{ marginTop: "0.5rem" }}>
+                Passive Income p.a.*
+              </p>
+            </div>
+          </motion.div>
 
-            <motion.p
-              className={`body-text ${styles.desc}`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 0.5 }}
-            >
-              Telah hadir hunian Student Living di lokasi strategis Samata, menghadirkan
-              kenyamanan tempat tinggal modern sekaligus menawarkan potensi investasi
-              dengan imbal hasil tinggi di kawasan yang terus berkembang.
-            </motion.p>
+          {/* Card 6: Stats (ROI) */}
+          <motion.div variants={itemVariants} className={`${styles.card} ${styles.cardStats3}`}>
+            <div className={styles.cardStats3Blur} />
+            <div className={styles.cardStats1Content}>
+              <span className={styles.cardStats3Value}>Guaranteed</span>
+              <p className={styles.cardStatsLabel} style={{ color: "var(--gold-200)", marginTop: "0.5rem" }}>
+                Buyback Program
+              </p>
+            </div>
+          </motion.div>
 
-            <motion.p
-              className={`body-text ${styles.desc}`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 0.6 }}
-            >
-              Dirancang oleh <em>EDRA Arsitek Indonesia</em>, setiap unit menghadirkan
-              standar arsitektur profesional dengan estetika modern yang membuat
-              belajar dan bersantai terasa lebih menyenangkan.
-            </motion.p>
-
-            {/* Highlight Cards */}
-            <motion.div
-              className={styles.highlights}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 0.7 }}
-            >
-              {highlights.map((item, i) => (
-                <motion.div
-                  key={item.num}
-                  className={styles.highlightItem}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.8 + i * 0.12 }}
-                >
-                  <span className={styles.highlightNum}>{item.num}</span>
-                  <div>
-                    <h4 className={styles.highlightTitle}>{item.title}</h4>
-                    <p className={styles.highlightDesc}>{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

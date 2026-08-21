@@ -2,9 +2,9 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import styles from "./InteractiveHoverButton.module.css";
 
-const InteractiveHoverButton = React.forwardRef(({ text = "Button", variant = "default", href, onClick, ...props }, ref) => {
+const InteractiveHoverButton = React.forwardRef(({ text = "Button", variant = "default", href, onClick, className = "", ...props }, ref) => {
   const isPrimary = variant === "primary";
-  const btnClass = `${styles.interactiveBtn} ${isPrimary ? styles.interactiveBtnPrimary : ""}`;
+  const btnClass = `${styles.interactiveBtn} ${isPrimary ? styles.interactiveBtnPrimary : ""} ${className}`.trim();
   
   const content = (
     <>

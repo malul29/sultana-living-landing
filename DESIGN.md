@@ -85,7 +85,7 @@ export default function SultanLivingLanding() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans">
       <Head>
-        <title>Sultan Living | Exclusive Student Living @ Samata</title>
+        <title>Sultan Living | Exclusive Student Living</title>
         <meta name="description" content="Investasi hunian mahasiswa eksklusif di Samata dengan passive income tinggi." />
       </Head>
 
@@ -96,7 +96,7 @@ export default function SultanLivingLanding() {
         <div className="relative z-10 max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">Sultan Living</h1>
           <p className="text-xl md:text-2xl font-light mb-8 italic">
-            Exclusive Student Living @ Samata
+            Exclusive Student Living
           </p>
           <p className="text-lg md:text-xl font-medium mb-10 uppercase tracking-widest text-amber-400">
             Better Living for Students, Better Value for Investors

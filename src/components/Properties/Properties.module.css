@@ -340,11 +340,11 @@
 
 @media (max-width: 480px) {
   .blockType {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   
   .floorPlanHeader h4 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .floorPlanSide {
@@ -352,23 +352,45 @@
   }
   
   .specsCard {
-    padding: 1.5rem;
+    padding: 1.25rem;
     border: none;
     background: rgba(255, 255, 255, 0.02);
     box-shadow: none;
   }
   
+  .specsCard h4 {
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .specsList {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
   .specIcon {
     padding: 0.5rem;
   }
   
   .specIcon svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .specValue {
+    font-size: 0.95rem;
   }
   
   .specsToggleBtn {
-    padding: 1.2rem 1rem;
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .specGridItem {
+    padding-bottom: 0.5rem;
+  }
+  .specGridValue {
     font-size: 0.85rem;
   }
 }

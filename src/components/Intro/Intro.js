@@ -69,41 +69,6 @@ export default function Intro({ onComplete }) {
           </motion.div>
         </motion.div>
 
-        {/* Staggered Character Reveal for Brand Text */}
-        <div className={styles.brandTextWrap}>
-          {brandText.map((char, index) => (
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ 
-                duration: 0.6, 
-                delay: 0.8 + index * 0.03, 
-                ease: [0.16, 1, 0.3, 1] 
-              }}
-              className={char === " " ? styles.space : ""}
-            >
-              {char}
-            </motion.span>
-          ))}
-        </div>
-
-        {/* Loading Line only */}
-        <motion.div 
-          className={styles.loaderBottom}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className={styles.loaderLineWrap}>
-            <motion.div
-              className={styles.loaderLine}
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-            />
-          </div>
-        </motion.div>
       </div>
     </motion.div>
   );

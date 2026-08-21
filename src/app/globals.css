@@ -2,15 +2,7 @@
 /* Design System: Premium Dark Luxury — Deep Olive + Champagne Gold */
 
 /* ===== CUSTOM FONTS ===== */
-@font-face {
-  font-family: 'The Seasons';
-  src: url('/fonts/theseasons-regular.woff2') format('woff2'),
-    url('/fonts/theseasons-regular.woff') format('woff'),
-    url('/fonts/theseasons-regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 @font-face {
   font-family: 'Glacial Indifference';
@@ -89,7 +81,7 @@
   --rounded-full: 9999px;
 
   /* Fonts */
-  --font-display: 'The Seasons', Georgia, serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Glacial Indifference', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-accent: 'Glacial Indifference', -apple-system, BlinkMacSystemFont, sans-serif;
 
