@@ -1,0 +1,203 @@
+/* ===== WhatsApp Floating Popup ===== */
+
+/* FAB (Floating Action Button) */
+.fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 4px 20px rgba(37, 211, 102, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.fab:hover {
+  box-shadow:
+    0 6px 28px rgba(37, 211, 102, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.fabIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pulse animation ring */
+.fabPulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.5);
+  animation: fabPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes fabPing {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  75%, 100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ===== Popup Card ===== */
+.popupCard {
+  position: fixed;
+  bottom: 6rem;
+  right: 1.5rem;
+  z-index: 998;
+  width: 320px;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--green-950, #0a0f0c);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Header */
+.popupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: #075E54;
+}
+
+.popupHeaderInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.popupAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.popupName {
+  font-family: var(--font-accent, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.popupStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #25D366;
+}
+
+.popupClose {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.popupClose:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Body */
+.popupBody {
+  padding: 1.25rem;
+  background: rgba(15, 21, 16, 0.9);
+}
+
+.chatBubble {
+  background: var(--green-800, #1e2a20);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0 0.75rem 0.75rem 0.75rem;
+  padding: 0.85rem 1rem;
+  max-width: 85%;
+}
+
+.chatBubble p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.chatBubble p + p {
+  margin-top: 0.3rem;
+}
+
+/* Chat Button */
+.chatBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  background: #25D366;
+  color: #fff;
+  font-family: var(--font-accent, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.chatBtn:hover {
+  background: #20bd5a;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .fab {
+    bottom: 1rem;
+    right: 1rem;
+    width: 54px;
+    height: 54px;
+  }
+
+  .popupCard {
+    bottom: 5rem;
+    right: 1rem;
+    left: 1rem;
+    width: auto;
+  }
+}

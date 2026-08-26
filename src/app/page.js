@@ -12,6 +12,7 @@ import Contact from "@/components/Contact/Contact";
 import Footer from "@/components/Footer/Footer";
 import Intro from "@/components/Intro/Intro";
 import Masterplan from "@/components/Masterplan/Masterplan";
+import WhatsAppPopup from "@/components/WhatsAppPopup/WhatsAppPopup";
 
 export default function Home() {
   const [introFinished, setIntroFinished] = useState(false);
@@ -38,6 +39,7 @@ export default function Home() {
           <Contact />
         </main>
         <Footer />
+        <WhatsAppPopup />
       </div>
     </>
   );
