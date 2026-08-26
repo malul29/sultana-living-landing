@@ -234,6 +234,7 @@
   background: rgba(255, 255, 255, 0.3);
   padding: 0.4rem 1rem;
   border-radius: var(--rounded-full);
+  white-space: nowrap;
 }
 
 .cardCtaArrow {
@@ -435,6 +436,22 @@
   .cardIcon svg {
     width: 18px;
     height: 18px;
+  }
+
+  .cardCtaBadge {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.05em;
+  }
+
+  .cardCtaArrow {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  
+  .cardCtaArrow svg {
+    width: 14px;
+    height: 14px;
   }
   
   .cardStatsLabel {

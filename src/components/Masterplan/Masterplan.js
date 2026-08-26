@@ -49,19 +49,10 @@ export default function Masterplan() {
       transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
     },
   };
-
   return (
     <section className={styles.masterplan} id="masterplan" ref={ref}>
       <div className="wrap">
         <div className={styles.header}>
-          <motion.span
-            className="label"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            Site Layout
-          </motion.span>
           <motion.h2
             className={styles.title}
             initial={{ opacity: 0, y: 30 }}

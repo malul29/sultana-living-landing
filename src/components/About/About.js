@@ -51,8 +51,8 @@ export default function About() {
                 <span style={{ color: "var(--gold-300)", fontStyle: "italic" }}>Meets Smart Investment</span>
               </h3>
               <p className={styles.cardLargeDesc}>
-                Dirancang oleh EDRA Arsitek, setiap unit menghadirkan standar arsitektur 
-                profesional dengan estetika modern di lokasi strategis Samata.
+                Sebuah mahakarya dari EDRA Arsitek, menawarkan perpaduan sempurna antara 
+                hunian berdesain elegan dan instrumen investasi cerdas di kawasan elite Samata.
               </p>
             </div>
           </motion.div>

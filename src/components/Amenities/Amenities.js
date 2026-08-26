@@ -92,7 +92,7 @@ export default function Amenities() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1 }}
         >
-          <span className="label">Smart Living & Lifestyle</span>
+
           <h2 className={styles.title}>
             Fasilitas <span className={styles.accent}>Premium</span>
           </h2>

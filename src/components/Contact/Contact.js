@@ -57,10 +57,7 @@ export default function Contact() {
               <span className={styles.infoLabel}>Marketing Gallery</span>
               <span className={styles.infoValue}>Romang Polong, Samata, Gowa</span>
             </div>
-            <div className={styles.infoItem}>
-              <span className={styles.infoLabel}>Jam Operasional</span>
-              <span className={styles.infoValue}>Setiap Hari: 09.00 - 17.00 WITA</span>
-            </div>
+
           </div>
         </motion.div>
       </div>

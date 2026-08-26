@@ -72,14 +72,7 @@ export default function FAQ() {
       <div className="wrap">
         <div className={styles.grid}>
           <div className={styles.header}>
-            <motion.span
-              className="label"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
-            >
-              FAQ
-            </motion.span>
+
             <motion.h2
               className={styles.title}
               initial={{ opacity: 0, y: 30 }}

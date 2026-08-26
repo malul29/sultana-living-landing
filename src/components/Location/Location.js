@@ -20,14 +20,7 @@ export default function Location() {
       <div className="wrap">
         <div className={styles.grid}>
           <div className={styles.content}>
-            <motion.span
-              className="label"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
-            >
-              Strategic Location
-            </motion.span>
+
             
             <motion.h2
               className={styles.title}
@@ -81,7 +74,7 @@ export default function Location() {
           >
             <div className={styles.mapFrame}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.1776875!2d119.497771!3d-5.210669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMTInMzguNCJTIDExOcKwMzAnMDEuMSJF!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
+                src="https://maps.google.com/maps?q=-5.210936,119.500354&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: "grayscale(100%) invert(90%) hue-rotate(180deg) contrast(1.2)" }}

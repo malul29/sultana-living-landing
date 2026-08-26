@@ -204,7 +204,7 @@ export default function Properties() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="label">Tipe Unit</span>
+
           <h2 className={styles.title}>
             Premium <span className={styles.accent}>Collections</span>
           </h2>
