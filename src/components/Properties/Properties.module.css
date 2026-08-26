@@ -221,12 +221,6 @@
   color: var(--white);
 }
 
-.bookBtn {
-  width: 100%;
-  justify-content: center;
-  padding: 1.2rem;
-}
-
 /* Global Specs Accordion */
 .globalSpecsWrapper {
   margin-top: clamp(6rem, 12vw, 8rem);

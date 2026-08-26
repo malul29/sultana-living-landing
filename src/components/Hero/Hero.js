@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import styles from "./Hero.module.css";
-import { InteractiveHoverButton } from "../ui/InteractiveHoverButton";
+import { GlassButton } from "../ui/GlassButton";
 import Plasma from "../ui/Plasma";
 
 const floatingStats = [
@@ -98,21 +98,22 @@ export default function Hero() {
         </motion.p>
 
         <motion.div variants={itemVariants} className={styles.heroCtas}>
-          <InteractiveHoverButton 
-            text="Hubungi Kami" 
-            variant="primary" 
+          <GlassButton
             href="https://wa.me/6285216621987"
             target="_blank"
             rel="noopener noreferrer"
-          />
-          <InteractiveHoverButton 
-            text="Lihat Unit" 
+          >
+            Hubungi Kami
+          </GlassButton>
+          <GlassButton
             href="#properties"
             onClick={(e) => {
               e.preventDefault();
               document.querySelector("#properties")?.scrollIntoView({ behavior: "smooth" });
             }}
-          />
+          >
+            Lihat Unit
+          </GlassButton>
         </motion.div>
 
         {/* Inline Stats Panel */}

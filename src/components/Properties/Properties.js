@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import styles from "./Properties.module.css";
+import { GlassButton } from "../ui/GlassButton";
 import { AnimatePresence, motion as m } from "framer-motion";
 import { useState } from "react";
 import {
@@ -177,9 +178,9 @@ function PropertySection({ prop, index, onImageClick }) {
                   </div>
                 </div>
               </div>
-              <a href="#contact" className={`btn btn-primary ${styles.bookBtn}`}>
+              <GlassButton href="#contact" fullWidth>
                 Book Unit {prop.type}
-              </a>
+              </GlassButton>
             </div>
           </motion.div>
         </div>

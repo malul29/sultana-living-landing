@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { MenuToggleIcon } from "./MenuToggleIcon";
-import { InteractiveHoverButton } from "../ui/InteractiveHoverButton";
+import { GlassButton } from "../ui/GlassButton";
+import { ArrowRight } from "lucide-react";
 import styles from "./Navbar.module.css";
 
 const navLinks = [
@@ -114,13 +115,14 @@ export default function Navbar() {
           </div>
 
           <div className={styles.navRight}>
-            <InteractiveHoverButton
-              text="Hubungi Kami"
-              variant="primary"
+            <GlassButton
+              size="sm"
               href="#contact"
               className={styles.ctaBtn}
               onClick={(e) => handleLinkClick(e, "#contact")}
-            />
+            >
+              Hubungi Kami
+            </GlassButton>
 
             <button
               className={styles.menuToggleBtn}
@@ -155,14 +157,36 @@ export default function Navbar() {
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
                   >
-                    <a
-                      href={link.href}
-                      className={styles.mobileLink}
-                      onClick={(e) => handleLinkClick(e, link.href)}
+                    <motion.div
+                      className={styles.menuVerticalItem}
+                      initial="rest"
+                      whileHover="hover"
+                      whileTap="hover"
                     >
-                      <span className={styles.mobileLinkNum}>0{i + 1}</span>
-                      {link.label}
-                    </a>
+                      <motion.div
+                        variants={{
+                          rest: { x: "-100%", opacity: 0 },
+                          hover: { x: 0, opacity: 1 },
+                        }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className={styles.menuVerticalArrow}
+                      >
+                        <ArrowRight strokeWidth={2.5} size={32} color="var(--gold-300)" />
+                      </motion.div>
+
+                      <motion.a
+                        href={link.href}
+                        className={styles.mobileLink}
+                        onClick={(e) => handleLinkClick(e, link.href)}
+                        variants={{
+                          rest: { x: -40, color: "var(--white)" },
+                          hover: { x: 0, color: "var(--gold-400)", skewX: -4 },
+                        }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                      >
+                        {link.label}
+                      </motion.a>
+                    </motion.div>
                   </motion.li>
                 ))}
               </ul>
