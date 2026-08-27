@@ -6,14 +6,13 @@ import { motion, useInView } from "framer-motion";
 import { Lock, Camera, Package, Flower2, Pipette } from "lucide-react";
 import styles from "./Amenities.module.css";
 
-// 4 main featured bento cards
 const featuredCards = [
   {
     eyebrow: "Security",
     title: "One Gate System & Digital Pass",
     description:
       "Satu akses terkontrol dengan digital pass. Keamanan dan privasi penghuni selalu terjaga penuh.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=900&q=80",
     span: "large",
   },
   {
@@ -29,7 +28,7 @@ const featuredCards = [
     title: "Jogging Track",
     description:
       "Fasilitas olahraga di lingkungan hijau yang asri dan tertata.",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=900&q=80",
     span: "small",
   },
   {
