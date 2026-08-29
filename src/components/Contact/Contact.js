@@ -74,8 +74,10 @@ export default function Contact() {
           </div>
 
           {/* WhatsApp button */}
-          <button
-            onClick={handleWhatsApp}
+          <a
+            href="https://wa.me/6285216621987?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F"
+            target="_blank"
+            rel="noopener noreferrer"
             onMouseEnter={() => setWaHovered(true)}
             onMouseLeave={() => setWaHovered(false)}
             className={styles.actionButton}
@@ -87,6 +89,7 @@ export default function Contact() {
                 : "translateY(15px) scale(1)",
               opacity: showSuccess ? 1 : 0,
               transitionDelay: "150ms",
+              textDecoration: "none",
             }}
           >
             <span
@@ -143,11 +146,11 @@ export default function Contact() {
                 opacity: waHovered ? 0 : 0.5,
               }}
             />
-          </button>
+          </a>
 
           {/* Phone button */}
-          <button
-            onClick={handlePhone}
+          <a
+            href="tel:+6285216621987"
             onMouseEnter={() => setPhoneHovered(true)}
             onMouseLeave={() => setPhoneHovered(false)}
             className={styles.actionButton}
@@ -159,6 +162,7 @@ export default function Contact() {
                 : "translateY(15px) scale(1)",
               opacity: showSuccess ? 1 : 0,
               transitionDelay: "300ms",
+              textDecoration: "none",
             }}
           >
             <span
@@ -206,7 +210,7 @@ export default function Contact() {
                 opacity: phoneHovered ? 0 : 0.5,
               }}
             />
-          </button>
+          </a>
 
           {/* Location subtext */}
           <span
