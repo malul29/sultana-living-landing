@@ -78,62 +78,62 @@ export default function Navbar() {
         transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className={styles.navInner}>
-        <nav className={styles.nav}>
-          <a href="#" className={styles.logo} aria-label="Sultana Living Home">
-            <Image
-              src="/images/logo.png"
-              alt="Sultana Living"
-              width={84}
-              height={84}
-              priority
-              unoptimized
-            />
-          </a>
+          <nav className={styles.nav}>
+            <a href="#" className={styles.logo} aria-label="Sultana Living Home">
+              <Image
+                src="/images/logo.png"
+                alt="Sultana Living"
+                width={84}
+                height={84}
+                priority
+                unoptimized
+              />
+            </a>
 
-          {/* Desktop Nav */}
-          <div className={styles.navCenter}>
-            <ul className={styles.navLinks}>
-              {navLinks.map((link) => (
-                <li key={link.href} className={styles.navItem}>
-                  <a
-                    href={link.href}
-                    className={`${styles.navLink} ${activeSection === link.href ? styles.navLinkActive : ""}`}
-                    onClick={(e) => handleLinkClick(e, link.href)}
-                  >
-                    {link.label}
-                    {activeSection === link.href && (
-                      <motion.div
-                        className={styles.activeIndicator}
-                        layoutId="navIndicator"
-                        transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                      />
-                    )}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Desktop Nav */}
+            <div className={styles.navCenter}>
+              <ul className={styles.navLinks}>
+                {navLinks.map((link) => (
+                  <li key={link.href} className={styles.navItem}>
+                    <a
+                      href={link.href}
+                      className={`${styles.navLink} ${activeSection === link.href ? styles.navLinkActive : ""}`}
+                      onClick={(e) => handleLinkClick(e, link.href)}
+                    >
+                      {link.label}
+                      {activeSection === link.href && (
+                        <motion.div
+                          className={styles.activeIndicator}
+                          layoutId="navIndicator"
+                          transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                        />
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div className={styles.navRight}>
-            <GlassButton
-              size="sm"
-              href="#contact"
-              className={styles.ctaBtn}
-              onClick={(e) => handleLinkClick(e, "#contact")}
-            >
-              Hubungi Kami
-            </GlassButton>
+            <div className={styles.navRight}>
+              <GlassButton
+                size="sm"
+                href="#contact"
+                className={styles.ctaBtn}
+                onClick={(e) => handleLinkClick(e, "#contact")}
+              >
+                Hubungi Kami
+              </GlassButton>
 
-            <button
-              className={styles.menuToggleBtn}
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle navigation menu"
-              aria-expanded={menuOpen}
-            >
-              <MenuToggleIcon open={menuOpen} className={styles.menuIcon} duration={500} />
-            </button>
-          </div>
-        </nav>
+              <button
+                className={styles.menuToggleBtn}
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle navigation menu"
+                aria-expanded={menuOpen}
+              >
+                <MenuToggleIcon open={menuOpen} className={styles.menuIcon} duration={500} />
+              </button>
+            </div>
+          </nav>
         </div>
       </motion.header>
 
@@ -197,7 +197,7 @@ export default function Navbar() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
               >
-                <a href="tel:+6285216621987" className={styles.mobilePhone}>
+                <a href="tel:+6282142436178" className={styles.mobilePhone}>
                   +62 852 1662 1987
                 </a>
                 <a href="mailto:admin@sultanaliving.id" className={styles.mobileEmail}>

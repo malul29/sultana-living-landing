@@ -101,7 +101,7 @@ export default function SultanLivingLanding() {
           <p className="text-lg md:text-xl font-medium mb-10 uppercase tracking-widest text-amber-400">
             Better Living for Students, Better Value for Investors
           </p>
-          <a href="https://wa.me/6285216621987" className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+          <a href="https://wa.me/6282142436178" className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
             Hubungi Admin Sales
           </a>
         </div>

@@ -22,7 +22,7 @@ export default function Hero() {
 
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.25, 0.65]);
-  
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -99,7 +99,7 @@ export default function Hero() {
 
         <motion.div variants={itemVariants} className={styles.heroCtas}>
           <GlassButton
-            href="https://wa.me/6285216621987"
+            href="https://wa.me/6282142436178"
             target="_blank"
             rel="noopener noreferrer"
           >

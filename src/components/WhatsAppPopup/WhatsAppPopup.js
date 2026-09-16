@@ -20,7 +20,7 @@ export default function WhatsAppPopup() {
 
   const handleChat = () => {
     window.open(
-      "https://wa.me/6285216621987?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F",
+      "https://wa.me/6282142436178?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F",
       "_blank"
     );
   };
@@ -70,7 +70,7 @@ export default function WhatsAppPopup() {
 
                 <a
                   className={styles.chatBtn}
-                  href="https://wa.me/6285216621987?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F"
+                  href="https://wa.me/6282142436178?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

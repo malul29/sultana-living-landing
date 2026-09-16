@@ -24,11 +24,11 @@ export default function Contact() {
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/6285216621987", "_blank");
+    window.open("https://wa.me/6282142436178", "_blank");
   };
 
   const handlePhone = () => {
-    window.location.href = "tel:+6285216621987";
+    window.location.href = "tel:+6282142436178";
   };
 
   return (
@@ -75,7 +75,7 @@ export default function Contact() {
 
           {/* WhatsApp button */}
           <a
-            href="https://wa.me/6285216621987?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F"
+            href="https://wa.me/6282142436178?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F"
             target="_blank"
             rel="noopener noreferrer"
             onMouseEnter={() => setWaHovered(true)}
@@ -150,7 +150,7 @@ export default function Contact() {
 
           {/* Phone button */}
           <a
-            href="tel:+6285216621987"
+            href="tel:+6282142436178"
             onMouseEnter={() => setPhoneHovered(true)}
             onMouseLeave={() => setPhoneHovered(false)}
             className={styles.actionButton}
@@ -307,18 +307,18 @@ export default function Contact() {
                   borderColor: isClicked
                     ? "var(--gold-400)"
                     : isHovered
-                    ? "var(--gold-400)"
-                    : "var(--white-alpha-200)",
+                      ? "var(--gold-400)"
+                      : "var(--white-alpha-200)",
                   backgroundColor: isClicked
                     ? "transparent"
                     : isHovered
-                    ? "var(--gold-400)"
-                    : "transparent",
+                      ? "var(--gold-400)"
+                      : "transparent",
                   transform: isClicked
                     ? "scale(3)"
                     : isHovered
-                    ? "scale(1.1)"
-                    : "scale(1)",
+                      ? "scale(1.1)"
+                      : "scale(1)",
                   opacity: isClicked ? 0 : 1,
                   transitionDuration: isClicked ? "700ms" : "500ms",
                 }}
@@ -331,8 +331,8 @@ export default function Contact() {
                   transform: isClicked
                     ? "translate(100px, -100px) scale(0.5)"
                     : isHovered
-                    ? "translate(2px, -2px)"
-                    : "translate(0, 0)",
+                      ? "translate(2px, -2px)"
+                      : "translate(0, 0)",
                   opacity: isClicked ? 0 : 1,
                   color:
                     isHovered && !isClicked
@@ -351,8 +351,8 @@ export default function Contact() {
                   transform: isClicked
                     ? "scaleX(0) translateX(-20px)"
                     : isHovered
-                    ? "scaleX(1.5)"
-                    : "scaleX(1)",
+                      ? "scaleX(1.5)"
+                      : "scaleX(1)",
                   opacity: isClicked ? 0 : isHovered ? 1 : 0.5,
                 }}
               />
@@ -364,8 +364,8 @@ export default function Contact() {
                   transform: isClicked
                     ? "scaleX(0) translateX(20px)"
                     : isHovered
-                    ? "scaleX(1.5)"
-                    : "scaleX(1)",
+                      ? "scaleX(1.5)"
+                      : "scaleX(1)",
                   opacity: isClicked ? 0 : isHovered ? 1 : 0.5,
                 }}
               />
