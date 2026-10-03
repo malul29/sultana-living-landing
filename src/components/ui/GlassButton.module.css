@@ -1,4 +1,4 @@
-/* ===== GlassButton — Premium Frosted Glass CTA ===== */
+/* ===== GlassButton - Premium Frosted Glass CTA ===== */
 
 /* Reset link/button appearance */
 .glassLink {
@@ -8,7 +8,7 @@
   text-decoration: none;
 }
 
-/* Outer wrapper — provides the "glow ring" on hover */
+/* Outer wrapper - provides the "glow ring" on hover */
 .glassWrap {
   position: relative;
   cursor: pointer;
@@ -33,7 +33,7 @@
   transform: translateY(-2px);
 }
 
-/* The button itself — frosted glass surface */
+/* The button itself - frosted glass surface */
 .glassBtn {
   position: relative;
   display: inline-flex;

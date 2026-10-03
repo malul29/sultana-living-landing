@@ -13,6 +13,7 @@ import Footer from "@/components/Footer/Footer";
 import Intro from "@/components/Intro/Intro";
 import Masterplan from "@/components/Masterplan/Masterplan";
 import WhatsAppPopup from "@/components/WhatsAppPopup/WhatsAppPopup";
+import PopupFlyer from "@/components/PopupFlyer/PopupFlyer";
 
 export default function Home() {
   const [introFinished, setIntroFinished] = useState(false);
@@ -40,6 +41,7 @@ export default function Home() {
         </main>
         <Footer />
         <WhatsAppPopup />
+        <PopupFlyer introFinished={introFinished} />
       </div>
     </>
   );

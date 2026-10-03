@@ -24,11 +24,11 @@ export default function Contact() {
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/6282142436178", "_blank");
+    window.open("https://wa.me/6287785758656", "_blank");
   };
 
   const handlePhone = () => {
-    window.location.href = "tel:+6282142436178";
+    window.location.href = "tel:+6287785758656";
   };
 
   return (
@@ -75,7 +75,7 @@ export default function Contact() {
 
           {/* WhatsApp button */}
           <a
-            href="https://wa.me/6282142436178?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F"
+            href="https://wa.me/6287785758656?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F"
             target="_blank"
             rel="noopener noreferrer"
             onMouseEnter={() => setWaHovered(true)}
@@ -150,7 +150,7 @@ export default function Contact() {
 
           {/* Phone button */}
           <a
-            href="tel:+6282142436178"
+            href="tel:+6287785758656"
             onMouseEnter={() => setPhoneHovered(true)}
             onMouseLeave={() => setPhoneHovered(false)}
             className={styles.actionButton}
@@ -253,7 +253,7 @@ export default function Contact() {
             <span className={styles.badgeText}>Unit Tersedia Terbatas</span>
           </div>
 
-          {/* Main heading — clickable */}
+          {/* Main heading - clickable */}
           <div
             className={styles.headingGroup}
             onMouseEnter={() => setIsHovered(true)}

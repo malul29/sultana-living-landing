@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { X, MessageCircle } from "lucide-react";
 import styles from "./WhatsAppPopup.module.css";
 
@@ -10,17 +10,12 @@ export default function WhatsAppPopup() {
   const [showButton, setShowButton] = useState(false);
 
   // Show button after scrolling a bit
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowButton(window.scrollY > 300);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (y) => setShowButton(y > 300));
 
   const handleChat = () => {
     window.open(
-      "https://wa.me/6282142436178?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F",
+      "https://wa.me/6287785758656?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F",
       "_blank"
     );
   };
@@ -63,14 +58,14 @@ export default function WhatsAppPopup() {
 
                 <div className={styles.popupBody}>
                   <div className={styles.chatBubble}>
-                    <p>Halo! 👋</p>
+                    <p>Halo!</p>
                     <p>Ada yang bisa kami bantu seputar Sultana Living?</p>
                   </div>
                 </div>
 
                 <a
                   className={styles.chatBtn}
-                  href="https://wa.me/6282142436178?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F"
+                  href="https://wa.me/6287785758656?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

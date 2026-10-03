@@ -20,10 +20,9 @@
 
 .accent {
   color: var(--gold-300);
-  font-style: italic;
 }
 
-/* Bento Grid — 2 columns so large cards are 2/3 and small are 1/3 */
+/* Bento Grid - 2 columns so large cards are 2/3 and small are 1/3 */
 .grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -137,7 +136,7 @@
 .supportingLabel {
   font-family: var(--font-accent);
   font-size: 0.75rem;
-  color: var(--white-alpha-400);
+  color: var(--white-alpha-500);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   white-space: nowrap;

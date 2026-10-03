@@ -34,7 +34,7 @@ export default function Footer() {
             <a href="#location">Lokasi</a>
             <a href="#faq">FAQ</a>
             <a
-              href="https://wa.me/6282142436178"
+              href="https://wa.me/6287785758656"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.navCta}

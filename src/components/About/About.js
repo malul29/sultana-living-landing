@@ -48,10 +48,10 @@ export default function About() {
               <h3 className={styles.cardLargeTitle}>
                 Where Modern Living
                 <br />
-                <span style={{ color: "var(--gold-300)", fontStyle: "italic" }}>Meets Smart Investment</span>
+                <span style={{ color: "var(--gold-300)" }}>Meets Smart Investment</span>
               </h3>
               <p className={styles.cardLargeDesc}>
-                Hunian eksklusif yang dirancang untuk generasi modern — memadukan 
+                Hunian eksklusif yang dirancang untuk generasi modern, memadukan 
                 desain arsitektur premium dengan potensi investasi tinggi di kawasan strategis Samata.
               </p>
             </div>
@@ -95,9 +95,6 @@ export default function About() {
             }}
           >
             <div className={styles.cardCtaHeader}>
-              <span className={styles.cardCtaBadge}>
-                Join Now
-              </span>
               <div className={styles.cardCtaArrow}>
                 <ArrowUpRight className="w-5 h-5" />
               </div>

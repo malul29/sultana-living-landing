@@ -1,4 +1,4 @@
-/* ===== Contact Section — "Let's Work Together" Style ===== */
+/* ===== Contact Section - "Let's Work Together" Style ===== */
 
 .contact {
   position: relative;
@@ -126,7 +126,7 @@
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--white-alpha-300);
+  color: var(--white-alpha-500);
   transition: all 0.5s ease;
 }
 
@@ -222,7 +222,7 @@
 }
 
 .titleFade {
-  color: var(--white-alpha-400);
+  color: var(--white-alpha-500);
 }
 
 /* Arrow circle */
@@ -294,7 +294,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--white-alpha-300);
+  color: var(--white-alpha-500);
 }
 
 /* ===== RESPONSIVE ===== */

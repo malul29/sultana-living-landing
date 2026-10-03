@@ -1,20 +1,15 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Hero.module.css";
 import { GlassButton } from "../ui/GlassButton";
 import Plasma from "../ui/Plasma";
 
-const floatingStats = [
-  { value: "36", label: "Exclusive Units", suffix: "" },
-  { value: "10", label: "Potential Yield", suffix: "%" },
-  { value: "170", label: "Start Investment", suffix: " Jt+" },
-];
-
 export default function Hero() {
   const sectionRef = useRef(null);
+  const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -61,6 +56,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Plasma WebGL Layer */}
+      {!reduceMotion && (
       <div className={styles.plasmaLayer}>
         <Plasma
           color="#c4b87e"
@@ -71,6 +67,7 @@ export default function Hero() {
           mouseInteractive={true}
         />
       </div>
+      )}
 
       {/* Hero Content */}
       <motion.div
@@ -79,12 +76,6 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
       >
-        {/* Badge */}
-        <motion.div variants={itemVariants} className={styles.badge}>
-          <span className={styles.badgeDot} />
-          High-Yield Investment · Samata&apos;s Prime Location
-        </motion.div>
-
         <motion.h1 variants={itemVariants} className={styles.title}>
           <span className={styles.titleLine}>Exclusive</span>
           <span className={styles.titleLine}>
@@ -93,13 +84,12 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p variants={itemVariants} className={styles.tagline}>
-          Hunian Student Living di lokasi strategis Samata — kenyamanan modern
-          sekaligus potensi investasi imbal hasil tinggi di kawasan yang terus berkembang.
+          Hunian mahasiswa eksklusif di Samata, dengan potensi imbal hasil hingga 10% per tahun.
         </motion.p>
 
         <motion.div variants={itemVariants} className={styles.heroCtas}>
           <GlassButton
-            href="https://wa.me/6282142436178"
+            href="https://wa.me/6287785758656"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -116,18 +106,6 @@ export default function Hero() {
           </GlassButton>
         </motion.div>
 
-        {/* Inline Stats Panel */}
-        <motion.div variants={itemVariants} className={styles.statsContainer}>
-          {floatingStats.map((stat, i) => (
-            <div key={stat.label} className={styles.statItem}>
-              <span className={styles.statValue}>
-                {stat.value}
-                <span className={styles.statSuffix}>{stat.suffix}</span>
-              </span>
-              <span className={styles.statLabel}>{stat.label}</span>
-            </div>
-          ))}
-        </motion.div>
       </motion.div>
     </section>
   );

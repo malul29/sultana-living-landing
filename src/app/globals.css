@@ -1,18 +1,8 @@
 /* ===== SULTANA LIVING - GLOBAL STYLES (REDESIGN) ===== */
-/* Design System: Premium Dark Luxury — Deep Olive + Champagne Gold */
+/* Design System: Premium Dark Luxury - Deep Olive + Champagne Gold */
 
 /* ===== CUSTOM FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-
-@font-face {
-  font-family: 'Glacial Indifference';
-  src: url('/fonts/glacialindifference-regular.woff2') format('woff2'),
-    url('/fonts/glacialindifference-regular.woff') format('woff'),
-    url('/fonts/glacialindifference-regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+/* Outfit (display) and Geist (body) are loaded via next/font in layout.js */
 
 /* ===== CSS VARIABLES ===== */
 :root {
@@ -44,7 +34,7 @@
   );
 
   /* Neutrals */
-  --white: #ffffff;
+  --white: #f4f5ef;
   --white-alpha-900: rgba(255, 255, 255, 0.9);
   --white-alpha-800: rgba(255, 255, 255, 0.8);
   --white-alpha-700: rgba(255, 255, 255, 0.7);
@@ -81,12 +71,12 @@
   --rounded-full: 9999px;
 
   /* Fonts */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Glacial Indifference', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-accent: 'Glacial Indifference', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: var(--font-outfit), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: var(--font-geist), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-accent: var(--font-geist), -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Spacing */
-  --section-padding: clamp(3rem, 6vw, 5rem);
+  --section-padding: clamp(4rem, 9vw, 7rem);
   --container-width: min(88rem, 92vw);
   --gap: clamp(1rem, 2vw, 2rem);
 
@@ -413,5 +403,19 @@ h4 {
 @media (max-width: 480px) {
   :root {
     --container-width: min(88rem, 90vw);
+  }
+}
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

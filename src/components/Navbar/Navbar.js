@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import Image from "next/image";
 import { MenuToggleIcon } from "./MenuToggleIcon";
 import { GlassButton } from "../ui/GlassButton";
@@ -21,13 +21,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 60);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 60));
 
   // Scroll spy
   useEffect(() => {
@@ -197,8 +192,8 @@ export default function Navbar() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
               >
-                <a href="tel:+6282142436178" className={styles.mobilePhone}>
-                  +62 852 1662 1987
+                <a href="tel:+6287785758656" className={styles.mobilePhone}>
+                  +62 877 8575 8656
                 </a>
                 <a href="mailto:admin@sultanaliving.id" className={styles.mobileEmail}>
                   admin@sultanaliving.id

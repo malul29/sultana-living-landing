@@ -11,7 +11,7 @@
   border-radius: 50%;
   border: none;
   background: #25D366;
-  color: #fff;
+  color: #f4f5ef;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,14 +94,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #f4f5ef;
 }
 
 .popupName {
   font-family: var(--font-accent, sans-serif);
   font-size: 0.9rem;
   font-weight: 600;
-  color: #fff;
+  color: #f4f5ef;
 }
 
 .popupStatus {
@@ -128,7 +128,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #f4f5ef;
   cursor: pointer;
   transition: background 0.2s ease;
 }
@@ -172,7 +172,7 @@
   padding: 0.9rem;
   border: none;
   background: #25D366;
-  color: #fff;
+  color: #f4f5ef;
   font-family: var(--font-accent, sans-serif);
   font-size: 0.85rem;
   font-weight: 600;

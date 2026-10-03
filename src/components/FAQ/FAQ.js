@@ -16,11 +16,11 @@ const faqs = [
   },
   {
     q: "Apakah ada program jaminan pengembalian?",
-    a: "Ya, kami menyediakan program Guarantee Return of Investment. Untuk detail lengkap mengenai skema dan syarat, silakan hubungi tim marketing kami di +62 852 1662 1987.",
+    a: "Ya, kami menyediakan program Guarantee Return of Investment. Untuk detail lengkap mengenai skema dan syarat, silakan hubungi tim marketing kami di +62 877 8575 8656.",
   },
   {
     q: "Di mana lokasi Exclusive Student Living?",
-    a: "Berlokasi di Romang Polong, Samata, Gowa — tepat bersebelahan dengan UIN Alauddin (0 Km). Kawasan ini merupakan area premium yang terus berkembang dengan aksesibilitas ke berbagai kampus dan fasilitas umum.",
+    a: "Berlokasi di Romang Polong, Samata, Gowa, tepat bersebelahan dengan UIN Alauddin (0 Km). Kawasan ini merupakan area premium yang terus berkembang dengan aksesibilitas ke berbagai kampus dan fasilitas umum.",
   },
   {
     q: "Siapa yang mendesain dan mengelola kawasan ini?",
