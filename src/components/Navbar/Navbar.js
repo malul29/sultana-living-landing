@@ -96,13 +96,6 @@ export default function Navbar() {
                       onClick={(e) => handleLinkClick(e, link.href)}
                     >
                       {link.label}
-                      {activeSection === link.href && (
-                        <motion.div
-                          className={styles.activeIndicator}
-                          layoutId="navIndicator"
-                          transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                        />
-                      )}
                     </a>
                   </li>
                 ))}
