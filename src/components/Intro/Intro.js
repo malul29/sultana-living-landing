@@ -33,7 +33,7 @@ export default function Intro({ onComplete }) {
 
   return (
     <motion.div
-      className={styles.introContainer}
+      className={`${styles.introContainer} intro-failsafe`}
       initial={{ clipPath: "inset(0% 0% 0% 0%)" }}
       animate={{ clipPath: "inset(100% 0% 0% 0%)" }}
       transition={{ duration: 0.9, delay: 1.4, ease: [0.76, 0, 0.24, 1] }}

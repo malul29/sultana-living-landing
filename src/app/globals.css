@@ -419,3 +419,21 @@ h4 {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ===== FAILSAFES =====
+   If JavaScript fails to run (very old browsers), never leave the visitor on the intro screen. */
+@keyframes failsafeReveal {
+  to { opacity: 1; }
+}
+
+@keyframes failsafeHide {
+  to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+.app-shell {
+  animation: failsafeReveal 0.01s 4s forwards;
+}
+
+.intro-failsafe {
+  animation: failsafeHide 0.01s 4.5s forwards;
+}

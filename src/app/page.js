@@ -27,7 +27,7 @@ export default function Home() {
         This allows Next.js to pre-render the elements, prevent flash of unstyled content (FOUC), and allows 
         Framer Motion animations to trigger smoothly exactly when the preloader ends.
       */}
-      <div style={{ opacity: introFinished ? 1 : 0, transition: "opacity 0.5s ease" }}>
+      <div className="app-shell" style={{ opacity: introFinished ? 1 : 0, transition: "opacity 0.5s ease" }}>
         <Navbar />
         <main>
           <Hero />
