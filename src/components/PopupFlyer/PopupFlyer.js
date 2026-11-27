@@ -21,6 +21,13 @@ export default function PopupFlyer({ introFinished }) {
     }
   }, [introFinished, hasShown]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e) => e.key === "Escape" && setIsOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen]);
+
   const closePopup = () => {
     setIsOpen(false);
   };
@@ -44,12 +51,12 @@ export default function PopupFlyer({ introFinished }) {
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
             onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
           >
-            <button className={styles.closeButton} onClick={closePopup} aria-label="Close popup">
+            <button className={styles.closeButton} onClick={closePopup} aria-label="Tutup" autoFocus>
               <X size={24} />
             </button>
             <div className={styles.imageWrapper}>
               <img
-                src="/images/FLYER%20Sultana.png"
+                src="/images/flyer.jpg"
                 alt="Promo Flyer Sultana Living"
                 className={styles.flyerImage}
               />
