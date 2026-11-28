@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/components/Experience/Experience.js"
+        ],
+        "createdAt": "2026-11-26T10:07:03.375Z",
+        "reason": "agent triage: floor plan dialog img has no src until Interactions.js sets it before showModal(); the dialog is hidden until then"
+      }
+    ]
+  }
+}
