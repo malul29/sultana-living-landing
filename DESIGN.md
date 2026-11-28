@@ -58,7 +58,7 @@ Latar halaman `stone`, sheet putih, panel gelap `olive-900`. Perpaduan olive gre
 Gloock untuk semua judul (hanya bobot 400), Figtree untuk isi. Judul tidak melewati 6rem. Tidak ada kicker di atas judul.
 
 ## Layout
-Hero tetap, sheet menutupnya (`heroSpace` setinggi layar dikurangi 48px). Isi hero: judul tetap "Hunian Mahasiswa" + kata emas bergantian, satu kalimat, tiga poin, tombol emas "Tanya ketersediaan unit" + tombol garis "Lihat tipe unit", catatan KPR. Gradasi paling gelap di belakang teks (kiri di desktop, bawah di ponsel); tombol WA melayang disembunyikan selama di hero. Isi sheet maks 1280px. Tipe unit: satu panel setinggi layar per tipe, satu kali scroll berpindah satu tipe (CSS scroll-snap di layar sentuh, `snapStep.mjs` untuk roda mouse dan trackpad). Layar lebih pendek dari 560px mengalir biasa.
+Hero tetap, sheet menutupnya (`heroSpace` setinggi layar dikurangi 48px). Isi hero: judul tetap "Hunian Mahasiswa" + kata emas bergantian, satu kalimat, tombol emas "Tanya ketersediaan unit" + tombol garis "Lihat tipe unit". Gradasi paling gelap di belakang teks (kiri di desktop, bawah di ponsel); tombol WA melayang disembunyikan selama di hero. Isi sheet maks 1280px. Tipe unit: satu panel setinggi layar per tipe, satu kali scroll berpindah satu tipe (CSS scroll-snap di layar sentuh, `snapStep.mjs` untuk roda mouse dan trackpad). Layar lebih pendek dari 560px mengalir biasa.
 
 ## Elevation & Depth
 Hampir datar. Bayangan hanya pada header dan tombol mengambang.
@@ -67,7 +67,7 @@ Hampir datar. Bayangan hanya pada header dan tombol mengambang.
 Radius hanya tiga: 16px (permukaan kecil), 28px (kartu, foto, panel), dan pil untuk tombol. Skala huruf 13, 14, 16, 18, 24, 32, 40px ditambah judul clamp; jarak kelipatan 4px, header berbentuk pil setelah di-scroll.
 
 ## Components
-Header satu pil liquid glass bening gaya iOS 26 (tint putih .38, blur 10px, saturasi tinggi, tepi specular; menu layar penuh di bawah 1024px); di hero hanya latarnya yang hilang, logo dan tautan tetap tampil putih. Footer "Meadow Rise" (komponen kiriman pemilik, versi JS): ajakan penutup di atas perbukitan olive dan emas yang digambar di canvas, lalu identitas, navigasi, kontak, baris mitra (Balla Sultana, EDRA, logo BTN/BRI/BSI di pelat putih), dan disclaimer di tanah olive gelap. Panel kontak terpisah sudah digabung ke sini; tanpa form email. Isi lain: foto besar yang membesar saat di-scroll, kolase miring yang meluruskan diri, kartu unit dengan garis dimensi, daftar fasilitas foto, tabel jarak, panel kontak gelap, footer gelap berisi logo Sultana dan PT Balla Sultana.
+Header satu pil liquid glass bening gaya iOS 26 (tint putih .38, blur 10px, saturasi tinggi, tepi specular; menu layar penuh di bawah 1024px); di hero hanya latarnya yang hilang, logo dan tautan tetap tampil putih. Footer "Meadow Rise" (komponen kiriman pemilik, versi JS): ajakan penutup di atas perbukitan olive dan emas yang digambar di canvas, lalu identitas, navigasi, kontak, baris mitra (Balla Sultana, EDRA, logo BTN/BRI/BSI tanpa kotak; EDRA dan bank satu warna terang lewat CSS, file asli tidak diubah, logo developer tetap emas), dan disclaimer di tanah olive gelap. Panel kontak terpisah sudah digabung ke sini; tanpa form email. Isi lain: foto besar yang membesar saat di-scroll, kolase miring yang meluruskan diri, kartu unit dengan garis dimensi, daftar fasilitas foto, tabel jarak.
 
 ## Do's and Don'ts
 - Do: konten terbaca tanpa JS; gerak scroll mati saat reduced motion.
@@ -76,6 +76,4 @@ Header satu pil liquid glass bening gaya iOS 26 (tint putih .38, blur 10px, satu
 
 Section tur kawasan (judul brosur "Investasi bernilai tinggi di kawasan strategis Samata"): render/garden.jpg satu layar penuh dengan tiga penanda bernomor (posisi dalam persen foto), panel judul, daftar, tombol WA dan siteplan. Di bawah 901px foto di atas, panel di bawahnya.
 
-Kepadatan (audit tasteskill): jarak antar-section 80px desktop dan 56px ponsel. Semua ajakan menghubungi berlabel "Tanya ketersediaan unit". Hero hanya judul, satu kalimat, dua tombol (menggantikan catatan hero di atas: tiga poin dan catatan KPR dihapus). Intro dua kolom, FAQ dua kolom. Spesifikasi: foto fasad r4.jpg di kiri, tiga kelompok tanpa kartu di kanan; judul kelompok memakai garis ukuran.
-
-Logo mitra di footer: tanpa kotak. EDRA dan bank tampil satu warna terang lewat CSS (file asli tidak diubah); logo developer tetap emas. Ini menggantikan catatan pelat putih sebelumnya.
+Kepadatan (audit tasteskill): jarak antar-section 80px desktop dan 56px ponsel. Semua ajakan menghubungi berlabel "Tanya ketersediaan unit". Intro dua kolom, FAQ dua kolom. Spesifikasi: foto fasad r4.jpg di kiri, tiga kelompok tanpa kartu di kanan; judul kelompok memakai garis ukuran.
