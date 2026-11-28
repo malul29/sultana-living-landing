@@ -13,12 +13,18 @@ export default function Interactions({ rootId }) {
     const clamp = (n) => Math.min(Math.max(n, 0), 1);
     const hero = root.querySelector("[data-hero]");
     const tracked = [...root.querySelectorAll("[data-p]")];
+    const sky = document.getElementById("contact"); // the footer sits outside root
+    const dark = root.querySelector('[aria-labelledby="view-title"]');
 
     let ticking = false;
     const update = () => {
       ticking = false;
       const vh = window.innerHeight;
+      // While the header sits on the hero photo it is clear glass; on the sheet it turns light.
+      root.toggleAttribute("data-over-hero", window.scrollY < vh - 110);
       root.toggleAttribute("data-scrolled", window.scrollY > 24);
+      const d = dark?.getBoundingClientRect();
+      root.toggleAttribute("data-over-ground", Boolean((sky && sky.getBoundingClientRect().bottom < 240) || (d && d.top < 48 && d.bottom > 48)));
       if (hero) {
         hero.style.setProperty("--h", clamp(window.scrollY / vh).toFixed(3));
         hero.toggleAttribute("data-past", window.scrollY > vh * 1.1);
@@ -96,7 +102,7 @@ export default function Interactions({ rootId }) {
       }
       const vh = window.innerHeight;
       if (e.ctrlKey || !panels.length || vh < 560 || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
-      if (e.target.closest?.("dialog")) return;
+      if (e.target.closest?.("dialog, header details")) return;
       const points = panels.map((el) => Math.round(el.getBoundingClientRect().top + window.scrollY - (parseFloat(getComputedStyle(el).scrollMarginTop) || 0)));
       const delta = e.deltaMode === 1 ? e.deltaY * 40 : e.deltaY;
       const target = snapStep(points, window.scrollY, delta, vh);
@@ -108,9 +114,22 @@ export default function Interactions({ rootId }) {
     };
     if (!touch) window.addEventListener("wheel", onWheel, { passive: false });
 
+    // The full-screen mobile menu locks page scroll and closes on Escape.
+    const menu = root.querySelector("header details");
+    const onMenu = () => {
+      document.documentElement.style.overflow = menu.open ? "hidden" : "";
+      menu.parentElement.toggleAttribute("data-open", menu.open);
+    };
+    const onKey = (e) => { if (e.key === "Escape") menu.removeAttribute("open"); };
+    menu?.addEventListener("toggle", onMenu);
+    window.addEventListener("keydown", onKey);
+
     // Without JS or <dialog> support the link just opens the plan in the same tab.
     const dialog = root.querySelector("[data-plan-dialog]");
     const onPlan = (e) => {
+      e.target.closest("header details a")?.closest("details").removeAttribute("open"); // close the mobile menu
+      // Focus keeps the header visible over the hero (for keyboard users); a mouse or touch click should not.
+      if (e.detail) e.target.closest("header a")?.blur();
       if (e.target === dialog) return dialog.close(); // backdrop click
       const place = e.target.closest("button[data-place]");
       if (place) {
@@ -134,6 +153,8 @@ export default function Interactions({ rootId }) {
       document.documentElement.style.scrollSnapType = "";
       window.removeEventListener("wheel", onWheel);
       root.removeEventListener("click", onPlan);
+      menu?.removeEventListener("toggle", onMenu);
+      window.removeEventListener("keydown", onKey);
       window.removeEventListener("scroll", onScroll);
       reveal?.disconnect();
       spy?.disconnect();

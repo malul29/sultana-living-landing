@@ -3,6 +3,7 @@ import { ArrowUpRight, Maximize2, X } from "lucide-react";
 import styles from "./Experience.module.css";
 import Interactions from "./Interactions";
 import Intro from "./Intro";
+import MeadowRiseFooter from "@/components/ui/meadow-rise-footer";
 
 const phone = "+62 877-8575-8656";
 const words = ["Dekat Kampus", "Aman 24 Jam", "Siap Investasi"];
@@ -14,34 +15,47 @@ const slides = [
 ];
 const whatsapp = "https://wa.me/6287785758656?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F";
 
+// [name, text, x%, y%] on render/garden.jpg
+const viewPoints = [
+  ["Gerbang utama", "Akses masuk dengan one gate system", 30.5, 66],
+  ["Club house", "Ruang bersama untuk penghuni", 44, 48],
+  ["Deretan unit", "36 unit dalam tiga tipe", 65, 29],
+];
+
 const units = [
-  { letter: "A", name: "Executive", image: "/images/render/exec-r8.jpg", plan: "/images/canva/plan-exec.jpg", lot: "6,6 x 11 m", land: "72 m²", building: "82 m²", rooms: "5 KT", baths: "5 KM", floors: "2 lantai", quantity: "15 unit" },
-  { letter: "B", name: "Deluxe", image: "/images/render/r6.jpg", plan: "/images/canva/plan-deluxe.jpg", lot: "6,6 x 11 m", land: "72 m²", building: "128 m²", rooms: "8 KT", baths: "8 KM", floors: "3 lantai", quantity: "14 unit" },
-  { letter: "C", name: "Premier", image: "/images/render/r5.jpg", plan: "/images/canva/plan-premier.jpg", lot: "7 x 11 m", land: "91 m²", building: "158 m²", rooms: "10 KT", baths: "10 KM", floors: "3 lantai", quantity: "7 unit" },
+  { letter: "A", name: "Executive", image: "/images/render/exec-r8.jpg", plan: "/images/canva/plan-exec.jpg", lot: "6,6 x 11 m", land: "72 m²", building: "82 m²", rooms: "5 kamar tidur", baths: "5 kamar mandi", floors: "2 lantai", quantity: "15 unit" },
+  { letter: "B", name: "Deluxe", image: "/images/render/r6.jpg", plan: "/images/canva/plan-deluxe.jpg", lot: "6,6 x 11 m", land: "72 m²", building: "128 m²", rooms: "8 kamar tidur", baths: "8 kamar mandi", floors: "3 lantai", quantity: "14 unit" },
+  { letter: "C", name: "Premier", image: "/images/render/r5.jpg", plan: "/images/canva/plan-premier.jpg", lot: "7 x 11 m", land: "91 m²", building: "158 m²", rooms: "10 kamar tidur", baths: "10 kamar mandi", floors: "3 lantai", quantity: "7 unit" },
 ];
 
 const specs = [
-  ["Struktur dan konstruksi", "Pondasi pile cap beton bertulang"],
-  ["Dinding", "Bata ringan diplester, aci, dan finish cat"],
-  ["Penutup lantai", "Homogeneous tile 60x60 cm, 30x60 cm untuk KM/WC"],
-  ["Pantry", "Meja beton finish homogeneous tile 60x60 + kitchen sink"],
-  ["Kusen pintu dan jendela", "Aluminium (Ex. Alexindo, Incalum, Dacon)"],
-  ["Pintu utama", "Solid engineered door + smart door lock"],
-  ["Pintu kamar dan KM/WC", "Engineered door"],
-  ["Plafon", "Gypsum board 9 mm (ruang dalam), calsiboard 6 mm (KM/WC dan teras)"],
-  ["Rangka dan penutup atap", "Baja ringan, UPVC Ex. Alderon"],
-  ["Sanitair", "Closet duduk + jet washer, shower"],
-  ["Cat", "Interior: cat Ex. Interior. Eksterior: cat Ex. Weathershield"],
-  ["Listrik", "2.200 VA (rumah tinggal), 1.300 VA (rumah kost) @ 900 VA per kamar"],
-  ["Air bersih", "PDAM + toren"],
+  ["Struktur dan atap", [
+    ["Struktur dan konstruksi", "Pondasi pile cap beton bertulang"],
+    ["Dinding", "Bata ringan diplester, aci, dan finish cat"],
+    ["Rangka dan penutup atap", "Baja ringan, UPVC Ex. Alderon"],
+    ["Plafon", "Gypsum board 9 mm (ruang dalam), calsiboard 6 mm (KM/WC dan teras)"],
+    ["Cat", "Interior: cat Ex. Interior. Eksterior: cat Ex. Weathershield"],
+  ]],
+  ["Pintu, jendela, dan lantai", [
+    ["Kusen pintu dan jendela", "Aluminium (Ex. Alexindo, Incalum, Dacon)"],
+    ["Pintu utama", "Solid engineered door + smart door lock"],
+    ["Pintu kamar dan KM/WC", "Engineered door"],
+    ["Penutup lantai", "Homogeneous tile 60x60 cm, 30x60 cm untuk KM/WC"],
+  ]],
+  ["Dapur dan utilitas", [
+    ["Pantry", "Meja beton finish homogeneous tile 60x60 + kitchen sink"],
+    ["Sanitair", "Closet duduk + jet washer, shower"],
+    ["Listrik", "2.200 VA (rumah tinggal), 1.300 VA (rumah kost) @ 900 VA per kamar"],
+    ["Air bersih", "PDAM + toren"],
+  ]],
 ];
 
 const facilities = [
   { name: "Club house", text: "Ruang bersama untuk penghuni, berdampingan dengan taman dan jogging track", image: "/images/render/clubhouse.jpg" },
   { name: "Smart lock", text: "Keyless access dan akses kartu", image: "/images/canva/f-smartlock.jpg" },
   { name: "Keamanan 24 jam dan CCTV", text: "One gate system untuk seluruh kawasan", image: "/images/canva/f-security.jpg" },
-  { name: "Taman dan jogging track", text: "Reflexy path dan kawasan ramah lingkungan", image: "/images/canva/f-taman.jpg" },
-  { name: "Charging EV", text: "Shelter fast charging station SPKLU PLN", image: "/images/canva/ev.jpg" },
+  { name: "Taman dan jogging track", text: "Reflexi track dan kawasan ramah lingkungan", image: "/images/canva/f-taman.jpg" },
+  { name: "Charging EV lebih mudah, hidup lebih nyaman", text: "Shelter fast charging station SPKLU PLN", image: "/images/canva/ev.jpg" },
 ];
 
 const gallery = [
@@ -51,7 +65,7 @@ const gallery = [
   ["/images/render/bathroom.jpg", "Ilustrasi kamar mandi"],
   ["/images/render/pool.jpg", "Ilustrasi area kolam"],
   ["/images/render/clubhouse.jpg", "Club house Sultana Living"],
-  ["/images/render/gate.jpg", "Gerbang utama Sultana Living"],
+  ["/images/render/fasad-pagi-2.jpg", "Ilustrasi fasad hunian di pagi hari"],
   ["/images/render/r4.jpg", "Ilustrasi deretan unit"],
 ];
 
@@ -60,7 +74,7 @@ const nearby = [["UIN Alauddin", 3], ["Polbangtan Gowa", 7], ["FK UNISMUH", 9], 
 
 const steps = [
   { title: "Pilih tipe unit", text: "Executive 2 lantai, Deluxe 3 lantai, atau Premier 3 lantai. Bandingkan luas, jumlah kamar, dan denah setiap tipe.", image: "/images/render/fasad-pagi.jpg" },
-  { title: "Hubungi marketing", text: "Tanyakan ketersediaan unit dan detail investasi langsung melalui WhatsApp atau telepon.", image: "/images/render/gate.jpg" },
+  { title: "Hubungi marketing", text: "Tanyakan ketersediaan unit dan detail investasi langsung melalui WhatsApp atau telepon.", image: "/images/render/r3-wide.jpg" },
   { title: "Ajukan KPR", text: "Sultana Living bekerja sama dengan BTN, BRI, dan BSI. Marketing menjelaskan skema dan ketentuannya.", image: "/images/render/dining.jpg" },
 ];
 
@@ -71,7 +85,7 @@ const places = [
   ["C", "SPKLU", [[1270, 815]]],
   ["D", "Taman", [[569, 575], [1336, 579], [1163, 827]]],
   ["E", "Jogging Track", [[657, 693]]],
-  ["F", "Reflexy Path", [[947, 563]]],
+  ["F", "Reflexi Track", [[947, 563]]],
 ];
 
 // Lot rectangles [x, y, width, height] in siteplan.jpg pixels. The artwork colours its lots in three groups of 15, 14 and 7, matching each type's unit count.
@@ -81,31 +95,73 @@ const lots = {
   Premier: [[715, 608, 64, 82], [1135, 608, 61, 82], [820, 690, 59, 80], [1135, 690, 61, 82], [1256, 607, 86, 63], [1256, 671, 76, 54], [1256, 725, 70, 65]],
 };
 
+// Sizes are tuned so the three marks look equally heavy; CSS renders them white on the dark footer.
+const banks = [
+  ["Bank BTN", "/images/banks/btn.svg", 68, 38],
+  ["Bank BRI", "/images/banks/bri.svg", 80, 30],
+  ["Bank Syariah Indonesia", "/images/banks/bsi.svg", 130, 36],
+];
+
+const footerColumns = [
+  { title: "Navigasi", links: [["Tentang", "#about"], ["Tipe Unit", "#properties"], ["Fasilitas", "#amenities"], ["Lokasi", "#location"], ["FAQ", "#faq"]].map(([label, href]) => ({ label, href })) },
+  { title: "Kontak", links: [
+    { label: "+62 877-8575-8656", href: "tel:+6287785758656" },
+    { label: "admin@sultanaliving.id", href: "mailto:admin@sultanaliving.id" },
+    { label: "Tanya ketersediaan unit", href: "https://wa.me/6287785758656?text=Halo%2C%20saya%20tertarik%20dengan%20Sultana%20Living.%20Bisa%20info%20lebih%20lanjut%3F" },
+    { label: "Buka peta", href: "https://maps.google.com/?q=Romang+Polong,+Samata,+Gowa" },
+  ] },
+];
+
+// Olive and gold take on the footer's meadow: golden haze in the distance, brand olive in the near hills.
+const meadow = {
+  sky: ["#ffffff", "#f3ecd8"],
+  haze: "#ece3c6",
+  glow: "#ffe6a6",
+  hills: [["#cdc49b", "#b2aa83"], ["#bcb26c", "#948c4e"], ["#9ea552", "#737a39"], ["#7f903c", "#566628"], ["#5b7a2a", "#3a501b"], ["#3f5224", "#222e12"]],
+  ground: "#25321a",
+  ink: "#25321a",
+  sub: "#1c2613",
+  pill: "#d6a233",
+  pillInk: "#25321a",
+  text: "#f3f4ea",
+  muted: "#c3cbb2",
+  line: "rgba(236, 194, 97, .3)",
+};
+
 const faqs = [
   ["Di mana lokasi Sultana Living?", "Sultana Living berada di Romang Polong, Samata, Gowa, di kawasan pendidikan yang terhubung dengan UIN Alauddin dan berbagai fasilitas kota."],
   ["Tipe unit apa saja yang tersedia?", "Tersedia tipe Executive 2 lantai, Deluxe 3 lantai, dan Premier 3 lantai. Premier memiliki luas tanah 91 m². Gambar lantai keempat pada materi denah adalah area atap, bukan lantai hunian tambahan."],
-  ["Apa saja fasilitas kawasan?", "Kawasan dilengkapi smart lock, keamanan 24 jam, CCTV, taman, jogging track, reflexy path, club house, one gate system, akses kartu, utilitas bawah tanah, serta shelter fast charging station."],
+  ["Apa saja fasilitas kawasan?", "Kawasan dilengkapi smart lock, keamanan 24 jam, CCTV, taman, jogging track, reflexi track, club house, one gate system, akses kartu, utilitas bawah tanah, serta shelter fast charging station."],
   ["Apakah tersedia KPR?", "Sultana Living bekerja sama dengan BTN, BRI, dan BSI untuk KPR. Hubungi marketing untuk skema dan ketentuannya."],
-  ["Bagaimana cara mendapatkan informasi unit?", "Klik Hubungi Kami untuk berbicara langsung dengan marketing melalui WhatsApp atau telepon."],
+  ["Bagaimana cara mendapatkan informasi unit?", "Klik Tanya ketersediaan unit untuk berbicara langsung dengan marketing melalui WhatsApp atau telepon."],
 ];
 
 function Arrow() { return <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.75} />; }
 
+function WhatsAppIcon({ size }) {
+  return <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.96L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.08.9.92-3-.2-.31A8.2 8.2 0 1 1 12.04 20.1Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06a6.7 6.7 0 0 1-3.3-2.88c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.42-.06-.12-.56-1.35-.76-1.85-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.3-.23.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.16 1.73 2.64 4.2 3.7 1.5.65 2.1.7 2.85.59.46-.07 1.46-.6 1.66-1.17.2-.57.2-1.06.14-1.17-.06-.1-.23-.16-.48-.28Z"/></svg>;
+}
+
 export default function Experience() {
   const navLinks = <><a href="#about">Tentang</a><a href="#properties">Tipe Unit</a><a href="#amenities">Fasilitas</a><a href="#location">Lokasi</a><a href="#faq">FAQ</a></>;
   return (
+    <>
     <div className={styles.site} id="site">
       <Interactions rootId="site" />
       <Intro />
       <header className={styles.header}>
         <a href="#site" className={styles.brand} aria-label="Sultana Living beranda">
-          <Image src="/images/logo-light.png" alt="Sultana Living" width={124} height={48} priority />
+          <Image src="/images/logo-light.png" alt="Sultana Living" width={92} height={36} priority />
+          <Image src="/images/logo.png" alt="" width={92} height={36} priority />
         </a>
         <nav className={styles.nav} aria-label="Navigasi utama">{navLinks}</nav>
-        <a className={styles.navCta} href="#contact">Hubungi Kami</a>
+        <a className={styles.navCta} href="#contact">Tanya ketersediaan unit</a>
         <details className={styles.menu}>
           <summary aria-label="Menu navigasi"><span /><span /></summary>
-          <nav className={styles.menuPanel} aria-label="Navigasi seluler">{navLinks}</nav>
+          <div className={styles.menuPanel}>
+            <nav aria-label="Navigasi seluler">{navLinks}</nav>
+            <p><a href="tel:+6287785758656">{phone}</a><a href="mailto:admin@sultanaliving.id">admin@sultanaliving.id</a></p>
+          </div>
         </details>
       </header>
 
@@ -115,14 +171,13 @@ export default function Experience() {
         </div>
         <div className={styles.heroShade} />
         <div className={styles.heroContent}>
-          <h1 aria-label="Hunian mahasiswa eksklusif">
+          <h1>
+            Hunian Mahasiswa{" "}
             <span className={styles.words} aria-hidden="true">{words.map((w) => <span key={w}>{w}</span>)}</span>
           </h1>
-          <div className={styles.heroFoot}>
-            <p>Tinggal 3 menit dari UIN Alauddin. Pilih dari 36 unit hunian mahasiswa di Samata, Gowa, dengan smart lock, one gate system, dan keamanan 24 jam.</p>
-          </div>
+          <p className={styles.heroLead}>36 unit dalam tiga tipe di Samata, Gowa. 3 menit ke UIN Alauddin.</p>
           <div className={styles.heroActions}>
-            <a className={styles.primaryCta} href={whatsapp} target="_blank" rel="noreferrer">Chat WhatsApp <Arrow /></a>
+            <a className={styles.primaryCta} href={whatsapp} target="_blank" rel="noreferrer"><WhatsAppIcon size={22} />Tanya ketersediaan unit</a>
             <a className={styles.ghostCta} href="#properties">Lihat tipe unit</a>
           </div>
         </div>
@@ -132,8 +187,11 @@ export default function Experience() {
         <div className={styles.heroSpace} aria-hidden="true" />
         <div className={styles.sheet}>
           <section className={styles.intro} id="about">
-            <h2>Hunian student living di lokasi strategis Samata, dengan kenyamanan tempat tinggal modern dan potensi nilai investasi tinggi</h2>
-            <p className={styles.introNote}>Gowa memadukan jejak Kerajaan Gowa dan Sultan Hasanuddin, Balla Lompoa, Malino, serta Bendungan Bili-bili, didukung UNHAS, UIN Alauddin, Politeknik Pembangunan Pertanian Gowa, UNISMUH, dan UNM.</p>
+            <div>
+              <h2>Hunian student living di lokasi strategis Samata</h2>
+              <p className={styles.introLead}>Menghadirkan kenyamanan tempat tinggal modern sekaligus menawarkan potensi nilai investasi tinggi di kawasan pendidikan baru yang terus berkembang.</p>
+            </div>
+            <p className={styles.introNote}>Lebih dari sekadar kawasan berkembang, Gowa memadukan kejayaan Kerajaan Gowa, jejak Sultan Hasanuddin, keagungan Balla Lompoa, dan pesona alam Malino, serta Bendungan Bili-bili dalam identitas budaya yang kuat dan berkarakter. Didukung posisi strategis serta kehadiran Universitas Hasanuddin, UIN Alauddin Makassar, Politeknik Pembangunan Pertanian Gowa, Universitas Muhammadiyah Makassar, dan Universitas Negeri Makassar, Gowa menawarkan potensi menjanjikan sebagai kawasan hunian, pendidikan, dan investasi.</p>
             <p className={styles.facts} data-r>
               <span><b data-count="36">36</b> unit eksklusif</span>
               <span><b data-count="3">3</b> tipe hunian</span>
@@ -157,8 +215,8 @@ export default function Experience() {
 
           <section className={styles.collection} id="properties">
             <div className={styles.head}>
-              <h2>Tiga tipe unit, 36 rumah</h2>
-              <p>Setiap tipe memberi ruang yang efisien, pencahayaan yang baik, dan kesiapan untuk kebutuhan student living.</p>
+              <h2>Cara baru memiliki aset bernilai</h2>
+              <p>Tiga tipe unit, 36 rumah. Setiap tipe memberi ruang yang efisien, pencahayaan yang baik, dan kesiapan untuk kebutuhan student living.</p>
             </div>
             <div className={styles.unitList}>
               {units.map((u) => (
@@ -169,26 +227,48 @@ export default function Experience() {
                   </div>
                   <div className={styles.unitInfo}>
                     <h3>Type {u.name}</h3>
-                    <p>{u.rooms} · {u.baths} · {u.building}</p>
+                    <p>{u.rooms}, {u.baths}, 2 carport</p>
                     <div className={styles.dim} role="img" aria-label={`Ukuran tanah ${u.lot}`}><span>{u.lot}</span></div>
                     <dl className={styles.unitSpecs}>
                       <div><dt>Luas tanah</dt><dd>{u.land}</dd></div><div><dt>Luas bangunan</dt><dd>{u.building}</dd></div><div><dt>Lantai</dt><dd>{u.floors}</dd></div>
                     </dl>
                     <div className={styles.unitActions}>
-                      <a className={styles.unitAsk} href={whatsapp} target="_blank" rel="noreferrer">Tanya unit ini <Arrow /></a>
+                      <a className={styles.unitAsk} href={whatsapp} target="_blank" rel="noreferrer">Tanya ketersediaan unit <Arrow /></a>
                       <a className={styles.textLink} href={u.plan} data-plan={`Denah tipe ${u.name}`}>Lihat denah <Arrow /></a>
                     </div>
                   </div>
                 </article>
               ))}
             </div>
-            <div className={styles.ctaCard} data-snap>
-              <h3>Tanya ketersediaan unit</h3>
-              <a className={styles.outlineCta} href="#contact">Hubungi kami</a>
-            </div>
             <div className={styles.specs}>
               <h3>Spesifikasi bangunan</h3>
-              <dl>{specs.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+              <figure className={styles.specPhoto}>
+                <div><Image src="/images/render/r4.jpg" alt="Ilustrasi fasad: kisi kayu, jendela berkusen gelap, dan atap miring" fill sizes="(max-width: 960px) 100vw, 520px" /></div>
+                <figcaption>Gambar merupakan ilustrasi</figcaption>
+              </figure>
+              <div className={styles.specGroups}>{specs.map(([group, rows]) => <div key={group}><h4>{group}</h4><dl>{rows.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl></div>)}</div>
+            </div>
+          </section>
+
+          <section className={styles.fullView} aria-labelledby="view-title">
+            <div className={styles.viewInner}>
+              <div className={styles.viewFrame}>
+                <div className={styles.viewStage}>
+                  <Image src="/images/render/garden.jpg" alt="Ilustrasi kawasan Sultana Living dari udara: gerbang utama, club house, dan deretan unit" fill sizes="(max-width: 900px) 180vw, 100vw" />
+                  <ol aria-hidden="true">{viewPoints.map(([name, , x, y], i) => <li key={name} style={{ left: `${x}%`, top: `${y}%` }}><b>{i + 1}</b><span>{name}</span></li>)}</ol>
+                </div>
+              </div>
+              <div className={styles.viewPanel}>
+                <div>
+                  <h2 id="view-title">Investasi bernilai tinggi di kawasan strategis Samata</h2>
+                  <ol>{viewPoints.map(([name, text], i) => <li key={name}><b>{i + 1}</b><span><strong>{name}</strong>{text}</span></li>)}</ol>
+                </div>
+                <div className={styles.viewActions}>
+                  <a className={styles.primaryCta} href={whatsapp} target="_blank" rel="noreferrer"><WhatsAppIcon size={20} />Tanya ketersediaan unit</a>
+                  <a className={styles.ghostCta} href="#masterplan">Lihat siteplan</a>
+                  <p>Gambar merupakan ilustrasi</p>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -261,14 +341,6 @@ export default function Experience() {
             <div className={styles.head}><h2>Pertanyaan tentang unit dan kawasan</h2><p>Butuh pembahasan lebih rinci? Tim kami siap membantu.</p></div>
             <div className={styles.faqList}>{faqs.map(([q, a]) => <details key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div>
           </section>
-
-          <section className={styles.contact} id="contact">
-            <div className={styles.contactPanel}>
-              <h2>Tanya ketersediaan unit</h2>
-              <p>Hubungi tim marketing Sultana Living untuk ketersediaan dan detail investasi.</p>
-              <div className={styles.contactActions}><a className={styles.primaryCta} href={whatsapp} target="_blank" rel="noreferrer">Chat WhatsApp <Arrow /></a><a className={styles.phoneCta} href="tel:+6287785758656">{phone}</a></div>
-            </div>
-          </section>
         </div>
       </main>
 
@@ -278,13 +350,31 @@ export default function Experience() {
         <img alt="" />
       </dialog>
 
-      <a className={styles.floatCall} href={whatsapp} target="_blank" rel="noreferrer" aria-label="Chat WhatsApp"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.96L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.08.9.92-3-.2-.31A8.2 8.2 0 1 1 12.04 20.1Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06a6.7 6.7 0 0 1-3.3-2.88c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.42-.06-.12-.56-1.35-.76-1.85-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.3-.23.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.16 1.73 2.64 4.2 3.7 1.5.65 2.1.7 2.85.59.46-.07 1.46-.6 1.66-1.17.2-.57.2-1.06.14-1.17-.06-.1-.23-.16-.48-.28Z"/></svg></a>
-
-      <footer className={styles.footer}>
-        <div className={styles.footerTop}><div className={styles.footerLogos}><Image src="/images/logo.png" alt="Sultana Living" width={140} height={55} /><Image src="/images/logo-balla-sultana.png" alt="PT. Balla Sultana Samata" width={110} height={87} /></div><p>Exclusive Student Living<br />Romang Polong, Samata, Gowa</p><p>Developer: PT. BALLA SULTANA SAMATA<br />Exclusive Design by EDRA Arsitek Indonesia<br />Kerja sama KPR: BTN, BRI, BSI</p></div>
-        <p className={styles.legal}>Disclaimer : Seluruh informasi yang dipublikasikan dalam semua halaman presentasi ini disajikan untuk tujuan informasi saja dan bukan merupakan dokumen resmi, pernyataan dan/atau perjanjian yang sah menurut hukum. Informasi tertulis, desain dan/atau gambar yang terdapat dalam presentasi ini bersifat tidak mengikat dan pengembang berhak untuk mengubah atau mengganti/menghapus baik sebagian dan/atau seluruhnya, pada setiap waktu tanpa pemberitahuan sebelumnya. Desain dan/atau gambar yang terdapat dalam presentasi ini bukan menjadi acuan atau dasar pelaksanaan pembangunan dan dasar pelaksanaan transaksi jual beli produk.</p>
-        <div className={styles.footerBottom}><span>© 2026 Sultana Living. All rights reserved.</span><a href="mailto:admin@sultanaliving.id">admin@sultanaliving.id</a></div>
-      </footer>
+      <a className={styles.floatCall} href={whatsapp} target="_blank" rel="noreferrer" aria-label="Tanya ketersediaan unit"><WhatsAppIcon size={30} /></a>
     </div>
+
+    {/* Outside .site so its resets do not override the footer's own styles. */}
+    <MeadowRiseFooter
+      name="Sultana Living"
+      brandHref="#site"
+      logo={<Image src="/images/logo.png" alt="Sultana Living" width={190} height={75} />}
+      ctaId="contact"
+      heading={"Tanya *ketersediaan unit*"}
+      subheading="Hubungi tim marketing Sultana Living untuk ketersediaan dan detail investasi."
+      cta={{ label: "Tanya ketersediaan unit", href: whatsapp }}
+      tagline={"Exclusive Student Living\nRomang Polong, Samata, Gowa"}
+      columns={footerColumns}
+      copyright="© 2026 Sultana Living. All rights reserved."
+      palette={meadow}
+      className={styles.meadow}
+    >
+      <dl className={styles.partners}>
+        <div><dt>Developer</dt><dd><Image src="/images/logo-balla-sultana.png" alt="" width={92} height={72} /><span>PT. BALLA SULTANA SAMATA</span></dd></div>
+        <div><dt>Exclusive Design by</dt><dd><Image className={styles.edraMark} src="/images/edra-logo-crop.png" alt="" width={90} height={80} /><span>EDRA Arsitek Indonesia</span></dd></div>
+        <div><dt>Kerja sama KPR</dt><dd className={styles.banks}>{banks.map(([name, src, width, height]) => <Image key={name} src={src} alt={name} width={width} height={height} />)}</dd></div>
+      </dl>
+      <p className={styles.legal}>Disclaimer : Seluruh informasi yang dipublikasikan dalam semua halaman presentasi ini disajikan untuk tujuan informasi saja dan bukan merupakan dokumen resmi, pernyataan dan/atau perjanjian yang sah menurut hukum. Informasi tertulis, desain dan/atau gambar yang terdapat dalam presentasi ini bersifat tidak mengikat dan pengembang berhak untuk mengubah atau mengganti/menghapus baik sebagian dan/atau seluruhnya, pada setiap waktu tanpa pemberitahuan sebelumnya. Desain dan/atau gambar yang terdapat dalam presentasi ini bukan menjadi acuan atau dasar pelaksanaan pembangunan dan dasar pelaksanaan transaksi jual beli produk.</p>
+    </MeadowRiseFooter>
+    </>
   );
 }
